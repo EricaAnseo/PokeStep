@@ -13,6 +13,7 @@
 		25B28E9C1E957D4B0031FF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B28E9B1E957D4B0031FF8D /* Assets.xcassets */; };
 		25B28E9F1E957D4C0031FF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B28E9D1E957D4C0031FF8D /* LaunchScreen.storyboard */; };
 		25B28EAA1E957D4C0031FF8D /* PokeStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B28EA91E957D4C0031FF8D /* PokeStepTests.swift */; };
+		25CE06051E97A96700C9914B /* pokedex.json in Resources */ = {isa = PBXBuildFile; fileRef = 25CE06041E97A96700C9914B /* pokedex.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		25B28EA51E957D4C0031FF8D /* PokeStepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeStepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B28EA91E957D4C0031FF8D /* PokeStepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStepTests.swift; sourceTree = "<group>"; };
 		25B28EAB1E957D4C0031FF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25CE06041E97A96700C9914B /* pokedex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokedex.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		25B28E931E957D4B0031FF8D /* PokeStep */ = {
 			isa = PBXGroup;
 			children = (
+				25CE06041E97A96700C9914B /* pokedex.json */,
 				25B28E941E957D4B0031FF8D /* AppDelegate.swift */,
 				25B28E961E957D4B0031FF8D /* ViewController.swift */,
 				25B28E981E957D4B0031FF8D /* Main.storyboard */,
@@ -179,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CE06051E97A96700C9914B /* pokedex.json in Resources */,
 				25B28E9F1E957D4C0031FF8D /* LaunchScreen.storyboard in Resources */,
 				25B28E9C1E957D4B0031FF8D /* Assets.xcassets in Resources */,
 				25B28E9A1E957D4B0031FF8D /* Main.storyboard in Resources */,
@@ -406,6 +410,7 @@
 				25B28EB01E957D4C0031FF8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25B28EB11E957D4C0031FF8D /* Build configuration list for PBXNativeTarget "PokeStepTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +419,7 @@
 				25B28EB31E957D4C0031FF8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
