@@ -16,7 +16,15 @@ class ViewController: UIViewController {
         
         readJson()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
         
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +34,9 @@ class ViewController: UIViewController {
     
     private func readJson() {
         do {
+            //if a json file called pokedex exists
             if let file = Bundle.main.url(forResource: "pokedex", withExtension: "json") {
+                
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let object = json as? [String: Any] {
@@ -46,13 +56,15 @@ class ViewController: UIViewController {
         }
     }
     
-    private func callPokemonByNumber()
+    /*private func callPokemonByNumber()
     {
         do{
             //updated by xcode, if the json file is not null
             if let file = Bundle.main.url(forResource: "pokedex", withExtension: "json")  {
                 let data = try Data(contentsOf: file)
-                _ = try JSONSerialization.jsonObject(with: data, options: [])
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                
+                
                 /*if let dictionary = jsonWithObjectRoot as? [String: Any] {
                     if let number = dictionary["someKey"] as? Double {
                         // access individual value in dictionary
@@ -77,7 +89,7 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
-    }
+    } */
 
 
 }

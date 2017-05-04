@@ -44,6 +44,12 @@
 		25B28E9C1E957D4B0031FF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25B28E9B1E957D4B0031FF8D /* Assets.xcassets */; };
 		25B28E9F1E957D4C0031FF8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25B28E9D1E957D4C0031FF8D /* LaunchScreen.storyboard */; };
 		25B28EAA1E957D4C0031FF8D /* PokeStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B28EA91E957D4C0031FF8D /* PokeStepTests.swift */; };
+		25C2C3701EBB68B2000C14C8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C36F1EBB68B2000C14C8 /* right-arrow.png */; };
+		25C2C3721EBB6B19000C14C8 /* right_arrow_bold.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C3711EBB6B19000C14C8 /* right_arrow_bold.png */; };
+		25C2C3741EBB6CF3000C14C8 /* default_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C3731EBB6CF3000C14C8 /* default_image.png */; };
+		25C2C3761EBBA2B1000C14C8 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C3751EBBA2B1000C14C8 /* 001.png */; };
+		25C2C3791EBBA5AC000C14C8 /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C3771EBBA5AC000C14C8 /* 002.png */; };
+		25C2C37A1EBBA5AC000C14C8 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 25C2C3781EBBA5AC000C14C8 /* 003.png */; };
 		25CE06051E97A96700C9914B /* pokedex.json in Resources */ = {isa = PBXBuildFile; fileRef = 25CE06041E97A96700C9914B /* pokedex.json */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +105,12 @@
 		25B28EA51E957D4C0031FF8D /* PokeStepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeStepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B28EA91E957D4C0031FF8D /* PokeStepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeStepTests.swift; sourceTree = "<group>"; };
 		25B28EAB1E957D4C0031FF8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25C2C36F1EBB68B2000C14C8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
+		25C2C3711EBB6B19000C14C8 /* right_arrow_bold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow_bold.png; sourceTree = "<group>"; };
+		25C2C3731EBB6CF3000C14C8 /* default_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_image.png; sourceTree = "<group>"; };
+		25C2C3751EBBA2B1000C14C8 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
+		25C2C3771EBBA5AC000C14C8 /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
+		25C2C3781EBBA5AC000C14C8 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
 		25CE06041E97A96700C9914B /* pokedex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokedex.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +135,7 @@
 		2503E3041EBB38070083C92A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				25C2C36E1EBB6893000C14C8 /* Images */,
 				2503E3051EBB39D90083C92A /* Lato */,
 				2503E3111EBB39D90083C92A /* Roboto */,
 				2503E31F1EBB39D90083C92A /* Roboto_Condensed */,
@@ -225,6 +238,19 @@
 			path = PokeStepTests;
 			sourceTree = "<group>";
 		};
+		25C2C36E1EBB6893000C14C8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				25C2C3751EBBA2B1000C14C8 /* 001.png */,
+				25C2C3771EBBA5AC000C14C8 /* 002.png */,
+				25C2C3781EBBA5AC000C14C8 /* 003.png */,
+				25C2C3731EBB6CF3000C14C8 /* default_image.png */,
+				25C2C3711EBB6B19000C14C8 /* right_arrow_bold.png */,
+				25C2C36F1EBB68B2000C14C8 /* right-arrow.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +340,7 @@
 				2503E3291EBB39D90083C92A /* Lato-Bold.ttf in Resources */,
 				25CE06051E97A96700C9914B /* pokedex.json in Resources */,
 				2503E3371EBB39D90083C92A /* Roboto-Italic.ttf in Resources */,
+				25C2C3761EBBA2B1000C14C8 /* 001.png in Resources */,
 				2503E32C1EBB39D90083C92A /* Lato-HairlineItalic.ttf in Resources */,
 				2503E3401EBB39D90083C92A /* RobotoCondensed-Bold.ttf in Resources */,
 				2503E32E1EBB39D90083C92A /* Lato-Light.ttf in Resources */,
@@ -335,13 +362,18 @@
 				2503E33B1EBB39D90083C92A /* Roboto-MediumItalic.ttf in Resources */,
 				2503E3381EBB39D90083C92A /* Roboto-Light.ttf in Resources */,
 				2503E3271EBB39D90083C92A /* Lato-Black.ttf in Resources */,
+				25C2C3791EBBA5AC000C14C8 /* 002.png in Resources */,
+				25C2C37A1EBBA5AC000C14C8 /* 003.png in Resources */,
 				2503E3341EBB39D90083C92A /* Roboto-BlackItalic.ttf in Resources */,
 				2503E3411EBB39D90083C92A /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				2503E3321EBB39D90083C92A /* Roboto_LICENSE.txt in Resources */,
 				2503E3301EBB39D90083C92A /* Lato-Regular.ttf in Resources */,
 				2503E33E1EBB39D90083C92A /* Roboto-ThinItalic.ttf in Resources */,
+				25C2C3701EBB68B2000C14C8 /* right-arrow.png in Resources */,
 				25B28E9A1E957D4B0031FF8D /* Main.storyboard in Resources */,
 				2503E3361EBB39D90083C92A /* Roboto-BoldItalic.ttf in Resources */,
+				25C2C3741EBB6CF3000C14C8 /* default_image.png in Resources */,
+				25C2C3721EBB6B19000C14C8 /* right_arrow_bold.png in Resources */,
 				2503E32F1EBB39D90083C92A /* Lato-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
