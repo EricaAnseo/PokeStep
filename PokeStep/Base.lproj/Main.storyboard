@@ -100,14 +100,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeJ-vA-eft">
-                                        <attributedString key="attributedText">
-                                            <fragment content="125  ">
-                                                <attributes>
-                                                    <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="125  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeJ-vA-eft">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="Vwz-YM-uOR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISTANCE: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgf-kN-1cg">
@@ -128,11 +126,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVOLUTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-GW-LHR">
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance to Walk:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80T-Gz-42P">
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -176,6 +169,11 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="003.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-dX-jtt"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVOLUTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-GW-LHR">
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="1" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -189,7 +187,7 @@
                             <constraint firstItem="Ze6-yb-Ekv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5QC-Gy-Leo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Iwv-XH-XXx" secondAttribute="bottom" constant="503" id="6a7-2c-Vu9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Iwv-XH-XXx" secondAttribute="trailing" id="B62-cy-mXM"/>
-                            <constraint firstItem="xKE-GW-LHR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="93" id="BKg-xO-x7V"/>
+                            <constraint firstItem="xKE-GW-LHR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="94" id="BKg-xO-x7V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NAQ-V2-bYt" secondAttribute="trailing" constant="121" id="De2-qd-uZX"/>
                             <constraint firstItem="3rK-Ls-LzA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="EUb-NK-NKI"/>
                             <constraint firstItem="Ze6-yb-Ekv" firstAttribute="top" secondItem="XRe-T4-T4X" secondAttribute="bottom" constant="8" id="Egy-6j-qcX"/>
@@ -223,11 +221,13 @@
                             <constraint firstItem="blL-BE-bOa" firstAttribute="top" secondItem="xKE-GW-LHR" secondAttribute="bottom" constant="11" id="dEf-6L-q6m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NAQ-V2-bYt" secondAttribute="bottom" constant="20" id="fKo-MY-Jz0"/>
                             <constraint firstItem="oav-sN-aRC" firstAttribute="top" secondItem="X2y-dX-jtt" secondAttribute="top" id="gOi-TG-vSU"/>
+                            <constraint firstItem="3rK-Ls-LzA" firstAttribute="top" secondItem="qwW-wH-oqG" secondAttribute="bottom" constant="22" id="gXM-Qn-LEN"/>
                             <constraint firstItem="LyI-JL-QqE" firstAttribute="top" secondItem="X2y-dX-jtt" secondAttribute="bottom" constant="21" id="grO-5E-O0i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0eb-wd-AoM" secondAttribute="trailing" constant="78" id="h5M-f3-aHD"/>
                             <constraint firstItem="DNS-5D-wqj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="204" id="hit-E5-BdY"/>
                             <constraint firstItem="Uu8-10-R3v" firstAttribute="top" secondItem="blL-BE-bOa" secondAttribute="bottom" constant="43" id="jbx-Ao-6LC"/>
                             <constraint firstItem="xKE-GW-LHR" firstAttribute="top" secondItem="Ze6-yb-Ekv" secondAttribute="bottom" constant="14.5" id="kHB-et-Z0P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xKE-GW-LHR" secondAttribute="trailing" constant="95" id="lbr-9r-vkX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xKE-GW-LHR" secondAttribute="trailing" constant="94" id="lbr-9r-vkX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DNS-5D-wqj" secondAttribute="trailing" constant="68" id="ntW-CM-0TP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3rK-Ls-LzA" secondAttribute="trailing" constant="191" id="oL1-el-Czc"/>
                             <constraint firstItem="DNS-5D-wqj" firstAttribute="top" secondItem="0eb-wd-AoM" secondAttribute="bottom" constant="8" id="qcc-Ak-y6W"/>
@@ -240,6 +240,15 @@
                             <constraint firstItem="qwW-wH-oqG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="zDG-H0-llk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceToWalk" destination="8dK-w8-LHB" id="Jmb-kh-RKs"/>
+                        <outlet property="pokemonCandy" destination="yeJ-vA-eft" id="VT8-ZR-EPH"/>
+                        <outlet property="pokemonDistance" destination="78E-W4-dSD" id="Mi2-rt-Cgj"/>
+                        <outlet property="pokemonName" destination="XRe-T4-T4X" id="qEl-8a-vmC"/>
+                        <outlet property="pokemonNumber" destination="lm9-cp-iGj" id="KNG-Jw-dIc"/>
+                        <outlet property="pokemonType" destination="wMl-pn-8Yc" id="L3p-Vn-CNF"/>
+                        <outlet property="userCurrentCandy" destination="LyI-JL-QqE" id="b6a-yw-vuc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,29 +7,69 @@
 //
 
 import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    //MARK: Properties
+    @IBOutlet weak var pokemonNumber: UILabel!
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonType: UILabel!
+    @IBOutlet weak var pokemonCandy: UILabel!
+    @IBOutlet weak var pokemonDistance: UILabel!
+    @IBOutlet weak var userCurrentCandy: UITextField!
+    @IBOutlet weak var distanceToWalk: UILabel!
+
+    var currentPokemonNumber = "001"
+    var currentPokemonName = "Bulbasaur"
+    var currentCandyEvolveOne: Int = 25
+    var currentCandyEvolveTwo: Int  = 100
+    var currentTotalPokemonCandy: Int = 0
+    var currentRequiredPokemonCandy: Int = 0
+    var currentPokemonDistance = 3
+    var testUserCurrentCandy = 5
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        readJson()
-        
+        //Dismiss Keyboard when the outside of the keyboard the outside of the keyboard is clicked
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
         
-    }
+        userCurrentCandy.delegate = self
+
+        
+        readJson()
+        
+        pokemonNumber.text = currentPokemonNumber
+        
+        //assigns uppercase version of text to the label
+        pokemonName.text = currentPokemonName.uppercased()
+        
+        currentTotalPokemonCandy = currentCandyEvolveOne + currentCandyEvolveTwo
+        pokemonCandy.text = String (currentTotalPokemonCandy)
+        
+        pokemonDistance.text = String (currentPokemonDistance)
+        
+        currentRequiredPokemonCandy = currentTotalPokemonCandy - testUserCurrentCandy
+        
+        distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
     
-    func dismissKeyboard()
-    {
-        view.endEditing(true)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //dismisses the Keyboard on touch
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
     
     private func readJson() {
@@ -40,8 +80,15 @@ class ViewController: UIViewController {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 if let object = json as? [String: Any] {
+                    
+                    //testing code
+                    if (object["pokemon"] as? [String: Any]) != nil {
+                        print(object["pokemon"])
+                    }
+                    
                     // json is a dictionary
-                    print(object)
+                    //print(object)
+                    
                 } else if let object = json as? [Any] {
                     // json is an array
                     print(object)
