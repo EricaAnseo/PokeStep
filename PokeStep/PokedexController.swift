@@ -10,8 +10,8 @@ import UIKit
 
 class PokedexCollectionViewController: UICollectionViewController {
     
-    var pokemonNames = ["Bulbasaur","Ivysaur", "Venasaur"]
-    var pokemonPictures = [UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg")]
+    //var pokemonNames = ["Bulbasaur","Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur","Ivysaur", "Venasaur"]
+    var pokemonPictures = [UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg")]
     
 
     override func viewDidLoad() {
@@ -25,20 +25,21 @@ class PokedexCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonNames.count
+        return pokemonPictures.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var pokemon = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemon", for: indexPath) as UICollectionViewCell
+        let pokemon = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemon", for: indexPath) as UICollectionViewCell
         
-        //Tagged assigned in storyboard
-        var pokemonImage = pokemon.viewWithTag(1) as! UIImageView
+        //Tagged assigned in storyboard. Tag 1 is assigned to the UIimage
+        let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
         
         pokemonImage.image = pokemonPictures[indexPath.row]
         
-        var pokemonName = pokemon.viewWithTag(2) as! UILabel
+        //Tag 2 is assigned to the UILabel
+        //let pokemonName = pokemon.viewWithTag(2) as! UILabel
         
-        pokemonName.text = pokemonNames[indexPath.row]
+        //pokemonName.text = pokemonNames[indexPath.row]
         
         return pokemon
     }
