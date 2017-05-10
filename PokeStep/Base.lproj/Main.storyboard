@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,28 +23,22 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="2eR-wM-agh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.85098039215686272" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T89-zQ-r3k">
-                            <size key="itemSize" width="65" height="65"/>
+                            <size key="itemSize" width="70" height="83"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pokemon" id="ygn-pY-W0Y">
-                                <rect key="frame" x="0.0" y="50" width="65" height="65"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="center" reuseIdentifier="pokemon" id="ygn-pY-W0Y">
+                                <rect key="frame" x="0.0" y="50" width="70" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-XG-l8Q">
-                                            <frame key="frameInset" minX="1" minY="2" width="63" height="62"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Uef-XG-l8Q" secondAttribute="height" multiplier="1:1" id="VQq-ty-lCr"/>
-                                                <constraint firstAttribute="width" secondItem="Uef-XG-l8Q" secondAttribute="height" multiplier="63:62" id="t9H-yv-Ixq"/>
-                                            </constraints>
-                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-XG-l8Q"/>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-Kk-72r">
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -53,21 +46,24 @@
                                         </label>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="0.71562663847447849" green="0.62248396262377081" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.82352941180000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.61616131600000001" green="0.79856602269999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="TUk-Kk-72r" secondAttribute="bottom" constant="-3" id="DtH-ap-2Ta"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="leading" secondItem="Uef-XG-l8Q" secondAttribute="leading" id="GwM-aY-YgH"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="top" id="WoS-A4-05N"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="top" secondItem="Uef-XG-l8Q" secondAttribute="top" id="X2K-DX-hpU"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="TUk-Kk-72r" secondAttribute="trailing" constant="-3" id="wIv-R5-t9m"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leading" id="waK-Lf-swU"/>
+                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="centerX" secondItem="ygn-pY-W0Y" secondAttribute="centerX" id="QrG-i6-KAr"/>
+                                    <constraint firstItem="Uef-XG-l8Q" firstAttribute="centerX" secondItem="TUk-Kk-72r" secondAttribute="centerX" id="Td2-ZW-iUU"/>
+                                    <constraint firstItem="Uef-XG-l8Q" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="topMargin" constant="-3" id="VnV-e3-C8q"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="TUk-Kk-72r" secondAttribute="bottom" constant="-5" id="beE-33-6Jc"/>
+                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="topMargin" constant="61" id="e88-JR-23A"/>
+                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" constant="2" id="etE-fK-fVm"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Uef-XG-l8Q" secondAttribute="bottom" constant="8" id="tAT-HJ-GvX"/>
+                                    <constraint firstItem="Uef-XG-l8Q" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" id="tR0-XJ-x4S"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="P6n-9T-1dx"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="giE-rY-0uW">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="PcO-95-jjA">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
@@ -95,6 +91,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blL-BE-bOa" userLabel="Divider">
                                 <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="WgP-1P-8aS"/>
+                                </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-5D-wqj" userLabel="Name Stack View">
                                 <subviews>
@@ -209,6 +208,9 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mL-zZ-J8l" userLabel="Divider">
                                 <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="DGs-o8-gbz"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT CANDY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbb-E8-Ma8">
                                 <constraints>
@@ -220,6 +222,9 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-T2-yLr" userLabel="Divider">
                                 <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="NLX-NC-fuC"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001.png" translatesAutoresizingMaskIntoConstraints="NO" id="0eb-wd-AoM">
                                 <constraints>
@@ -330,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110.14492753623189" y="123.91304347826087"/>
+            <point key="canvasLocation" x="101" y="142"/>
         </scene>
     </scenes>
     <resources>

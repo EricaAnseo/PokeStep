@@ -13,9 +13,14 @@ class PokedexCollectionViewController: UICollectionViewController {
     //var pokemonNames = ["Bulbasaur","Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur","Ivysaur", "Venasaur"]
     var pokemonPictures = [UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg")]
     
+    var pokedex = [[String:Any]]()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        readPokemonJson()
 
     }
     
@@ -42,6 +47,56 @@ class PokedexCollectionViewController: UICollectionViewController {
         //pokemonName.text = pokemonNames[indexPath.row]
         
         return pokemon
+    }
+    
+    private func readPokemonJson() {
+        do {
+            //if a json file called pokedex exists
+            if let file = Bundle.main.url(forResource: "pokedex", withExtension: "json") {
+                
+                let data = try Data(contentsOf: file)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                if let pokedexObject = json as? [String: Any] {
+                    
+                    readJSONObject(object: pokedexObject as [String : AnyObject])
+                    
+                } else if let object = json as? [Any] {
+                    // json is an array
+                    print(object)
+                } else {
+                    print("JSON is invalid")
+                }
+            } else {
+                print("no file")
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func readJSONObject(object: [String: AnyObject]) {
+        guard //let pokemonID = object["id"] as? String,
+            //let version = object["swiftVersion"] as? Float,
+            let pocketMonsters = object["pokemon"] as? [[String: AnyObject]] else { return }
+       
+        
+        for pokemon in pocketMonsters {
+            guard let num = pokemon["num"] as? String,
+                let name = pokemon["name"] as? String else { break }
+            
+                print(num + name)
+            
+            //switch num {
+            //case "001":
+                //print(num + " is \(name) years old.")
+            //case "002":
+               // _ = num + " is \(name) years old."
+            //case "003":
+               // _ = num + " is \(name) years old."
+            //default:
+                //break
+            //}
+        }
     }
     
     
