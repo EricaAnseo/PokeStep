@@ -9,12 +9,9 @@
 import UIKit
 
 class PokedexCollectionViewController: UICollectionViewController {
-    
-    var pokemonNames = ["Bulbasaur","Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur", "Ivysaur", "Venasaur", "Bulbasaur","Ivysaur", "Venasaur"]
-    var pokemonPictures = [UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg")]
-    
+
     var pokedex = [[String:Any]]()
-    var names = [String]()
+    var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
     
 
@@ -22,6 +19,12 @@ class PokedexCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         readPokemonJson()
+        
+        
+        //changing the colour of the navigation controller to match the background
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.92, green:0.89, blue:0.99, alpha:0.5)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.35, green:0.28, blue:0.43, alpha:1.0)]
 
     }
     
@@ -31,7 +34,7 @@ class PokedexCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return names.count
+        return pokemonNames.count
         //return pokemonPictures.count
     }
     
@@ -46,7 +49,7 @@ class PokedexCollectionViewController: UICollectionViewController {
         
         pokemonImage.image = pokemonImages[indexPath.row]
 
-        pokemonName.text = names[indexPath.row]
+        pokemonName.text = pokemonNames[indexPath.row]
         
         return pokemon
     }
@@ -65,50 +68,14 @@ class PokedexCollectionViewController: UICollectionViewController {
                     
                     for pokemon in pocketMonsters!{
                         if let name = pokemon["name"] as? String {
-                            names.append(name)
+                            pokemonNames.append(name)
                         }else { break }
                         if let imageURL = pokemon["img"] as? String {
                             
-                            //dispatch_async(DispatchQueue.global( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                                
-                                let myImage = try UIImage(data: NSData(contentsOf: NSURL(string:imageURL) as! URL) as Data)
-                                self.pokemonImages.append(myImage!)
-                           // })
+                            let myImage = try UIImage(data: NSData(contentsOf: NSURL(string:imageURL) as! URL) as Data)
+                            self.pokemonImages.append(myImage!)
                             
-                            /*let pokemonPictureURL = URL(string: imageURL)!
-                            
-                            // Creating a session object with the default configuration.
-                            // You can read more about it here https://developer.apple.com/reference/foundation/urlsessionconfiguration
-                            let session = URLSession(configuration: .default)
-                            
-                            // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
-                            let downloadPicTask = session.dataTask(with: pokemonPictureURL) { (data, response, error) in
-                                // The download has finished.
-                                if let e = error {
-                                    print("Error downloading pokemon picture: \(e)")
-                                } else {
-                                    // No errors found.
-                                    // It would be weird if we didn't have a response, so check for that too.
-                                    if (response as? HTTPURLResponse) != nil {
-                                        if let imageData = data {
-                                            // Finally convert that Data into an image and do what you wish with it.
-                                            let onlineImage = UIImage(data: imageData)
-                                            // Do something with your image.
-                                            
-                                            self.pokemonImages.append(onlineImage!)
-                                            
-                                        } else {
-                                            print("Couldn't get image: Image is nil")
-                                        }
-                                    } else {
-                                        print("Couldn't get response code for some reason")
-                                    }
-                                }
-                            }
-                            
-                            downloadPicTask.resume()*/
-                            
-                        } //else { break }
+                        } else { break }
                     
                     }
                     

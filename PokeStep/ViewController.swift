@@ -39,6 +39,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         view.addGestureRecognizer(tap)
         
+        //changing the navigation controller to match the page background colour
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.89, green:1.00, blue:0.88, alpha:1.0)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.12, green:0.52, blue:0.59, alpha:1.0)]
+        
+        
+        
         userCurrentCandy.delegate = self
 
         
@@ -103,41 +110,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    /*private func callPokemonByNumber()
-    {
-        do{
-            //updated by xcode, if the json file is not null
-            if let file = Bundle.main.url(forResource: "pokedex", withExtension: "json")  {
-                let data = try Data(contentsOf: file)
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                
-                
-                /*if let dictionary = jsonWithObjectRoot as? [String: Any] {
-                    if let number = dictionary["someKey"] as? Double {
-                        // access individual value in dictionary
-                    }
-                    
-                    for (key, value) in dictionary {
-                        // access all key / value pairs in dictionary
-                    }
-                    
-                    if let nestedDictionary = dictionary["anotherKey"] as? [String: Any] {
-                        // access nested dictionary values by key
-                    }
-                }*/
-                
-                
-            }
-
-        }
-            
-        //handles any errors that may occur from reading the json file
-        catch {
-            print(error.localizedDescription)
-        }
-        
-    } */
-
-
 }
 

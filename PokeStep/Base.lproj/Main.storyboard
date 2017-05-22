@@ -32,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="-1638" y="124"/>
         </scene>
-        <!--Pokedex Collection View Controller-->
+        <!--POKÉDEX-->
         <scene sceneID="3Ec-Di-7o6">
             <objects>
                 <collectionViewController id="NXf-iJ-TGW" customClass="PokedexCollectionViewController" customModule="PokeStep" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                             <outlet property="delegate" destination="NXf-iJ-TGW" id="jkS-YW-zk9"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="yfl-bj-HQF"/>
+                    <navigationItem key="navigationItem" title="POKÉDEX" id="yfl-bj-HQF"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHh-rE-TD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,11 +219,6 @@
                                 <color key="textColor" red="0.0" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001.png" translatesAutoresizingMaskIntoConstraints="NO" id="0eb-wd-AoM">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="152" id="yJY-9T-EEw"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LyI-JL-QqE">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="b6J-Px-t1F"/>
@@ -265,6 +260,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="003.png" translatesAutoresizingMaskIntoConstraints="NO" id="X2y-dX-jtt">
                                 <frame key="frameInset" minX="273" minY="325" width="80" height="80"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="001.png" translatesAutoresizingMaskIntoConstraints="NO" id="0eb-wd-AoM">
+                                <frame key="frameInset" minX="112" minY="72" width="150" height="152"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="1" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -281,7 +280,6 @@
                             <constraint firstItem="X2y-dX-jtt" firstAttribute="trailing" secondItem="0mL-zZ-J8l" secondAttribute="trailing" id="G7N-li-wTl"/>
                             <constraint firstItem="Nbb-E8-Ma8" firstAttribute="top" secondItem="gAX-T2-yLr" secondAttribute="bottom" constant="8" symbolic="YES" id="GIg-uh-69s"/>
                             <constraint firstItem="Ze6-yb-Ekv" firstAttribute="centerX" secondItem="blL-BE-bOa" secondAttribute="centerX" id="HDy-0Y-R9N"/>
-                            <constraint firstItem="0eb-wd-AoM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="II4-BN-u1D"/>
                             <constraint firstItem="DNS-5D-wqj" firstAttribute="centerX" secondItem="xKE-GW-LHR" secondAttribute="centerX" id="IUp-Jb-cJm"/>
                             <constraint firstItem="80T-Gz-42P" firstAttribute="top" secondItem="MjM-hV-tvW" secondAttribute="bottom" constant="11" id="KE4-K6-ys6"/>
                             <constraint firstItem="oav-sN-aRC" firstAttribute="bottom" secondItem="X2y-dX-jtt" secondAttribute="bottom" id="KYf-3j-iWy"/>
@@ -309,8 +307,6 @@
                             <constraint firstItem="0mL-zZ-J8l" firstAttribute="top" secondItem="cd8-Zv-utK" secondAttribute="bottom" constant="57" id="gFb-8v-n77"/>
                             <constraint firstItem="qwW-wH-oqG" firstAttribute="top" secondItem="oav-sN-aRC" secondAttribute="top" id="hHu-ed-2Tp"/>
                             <constraint firstItem="No4-Sx-Q82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="hOk-vZ-f3v"/>
-                            <constraint firstItem="0eb-wd-AoM" firstAttribute="centerX" secondItem="DNS-5D-wqj" secondAttribute="centerX" id="hpa-hH-j4m"/>
-                            <constraint firstItem="0eb-wd-AoM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="96" id="jWy-PK-Oid"/>
                             <constraint firstItem="oav-sN-aRC" firstAttribute="top" secondItem="X2y-dX-jtt" secondAttribute="top" id="nCp-HL-mce"/>
                             <constraint firstItem="0mL-zZ-J8l" firstAttribute="leading" secondItem="gAX-T2-yLr" secondAttribute="leading" id="onI-CH-0He"/>
                             <constraint firstItem="MjM-hV-tvW" firstAttribute="centerX" secondItem="gAX-T2-yLr" secondAttribute="centerX" id="pXZ-wQ-6VM"/>
@@ -321,7 +317,6 @@
                             <constraint firstItem="cd8-Zv-utK" firstAttribute="bottom" secondItem="Uu8-10-R3v" secondAttribute="bottom" id="t58-do-6Ln"/>
                             <constraint firstItem="cd8-Zv-utK" firstAttribute="leading" secondItem="qwW-wH-oqG" secondAttribute="trailing" constant="9" id="u0K-9f-CNN"/>
                             <constraint firstItem="0mL-zZ-J8l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="usZ-cw-cbE"/>
-                            <constraint firstItem="DNS-5D-wqj" firstAttribute="top" secondItem="0eb-wd-AoM" secondAttribute="bottom" constant="8" symbolic="YES" id="vsV-k4-Lwj"/>
                             <constraint firstItem="0mL-zZ-J8l" firstAttribute="centerX" secondItem="MjM-hV-tvW" secondAttribute="centerX" id="wa0-v1-C92"/>
                             <constraint firstItem="gAX-T2-yLr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="530" id="wwT-xn-xVQ"/>
                             <constraint firstItem="S6z-Xf-Whh" firstAttribute="firstBaseline" secondItem="80T-Gz-42P" secondAttribute="firstBaseline" id="xvW-XJ-4lT"/>
