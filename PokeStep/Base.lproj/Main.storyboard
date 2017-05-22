@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NXf-iJ-TGW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="38W-RH-nC8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -16,6 +16,22 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eqP-r3-eH2">
+            <objects>
+                <navigationController id="38W-RH-nC8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fme-tO-WH2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NXf-iJ-TGW" kind="relationship" relationship="rootViewController" id="rPt-O2-ANk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6n-Dl-1Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1638" y="124"/>
+        </scene>
         <!--Pokedex Collection View Controller-->
         <scene sceneID="3Ec-Di-7o6">
             <objects>
@@ -26,13 +42,13 @@
                         <color key="backgroundColor" red="0.85098039215686272" green="0.82352941176470584" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T89-zQ-r3k">
                             <size key="itemSize" width="70" height="83"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="center" reuseIdentifier="pokemon" id="ygn-pY-W0Y">
-                                <rect key="frame" x="0.0" y="50" width="70" height="83"/>
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="83"/>
@@ -40,7 +56,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-XG-l8Q"/>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-Kk-72r">
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="9"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -63,15 +79,12 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="PcO-95-jjA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="NXf-iJ-TGW" id="4g7-5X-Wqv"/>
                             <outlet property="delegate" destination="NXf-iJ-TGW" id="jkS-YW-zk9"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="yfl-bj-HQF"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHh-rE-TD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -219,16 +232,6 @@
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4m-IM-Cba">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="VfM-Wy-kM4"/>
-                                    <constraint firstAttribute="height" constant="27" id="aM7-7R-WyJ"/>
-                                </constraints>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="NXf-iJ-TGW" kind="show" id="OJA-wl-Z9E"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU NEED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-hV-tvW">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="WD2-Sn-4GX"/>
@@ -268,7 +271,6 @@
                             <constraint firstItem="blL-BE-bOa" firstAttribute="centerX" secondItem="oav-sN-aRC" secondAttribute="centerX" id="01Q-MC-yeB"/>
                             <constraint firstItem="xKE-GW-LHR" firstAttribute="top" secondItem="blL-BE-bOa" secondAttribute="bottom" constant="7" id="1Pj-hF-WeE"/>
                             <constraint firstItem="blL-BE-bOa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="1aW-U5-uLg"/>
-                            <constraint firstItem="b4m-IM-Cba" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="6s2-g8-h9q"/>
                             <constraint firstItem="No4-Sx-Q82" firstAttribute="baseline" secondItem="S6z-Xf-Whh" secondAttribute="baseline" id="7Cd-MU-UvU"/>
                             <constraint firstItem="gAX-T2-yLr" firstAttribute="top" secondItem="No4-Sx-Q82" secondAttribute="bottom" constant="30" id="91O-VZ-koW"/>
                             <constraint firstItem="Uu8-10-R3v" firstAttribute="centerY" secondItem="X2y-dX-jtt" secondAttribute="centerY" id="9d1-K6-XQ3"/>
@@ -309,7 +311,6 @@
                             <constraint firstItem="No4-Sx-Q82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="hOk-vZ-f3v"/>
                             <constraint firstItem="0eb-wd-AoM" firstAttribute="centerX" secondItem="DNS-5D-wqj" secondAttribute="centerX" id="hpa-hH-j4m"/>
                             <constraint firstItem="0eb-wd-AoM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="96" id="jWy-PK-Oid"/>
-                            <constraint firstItem="b4m-IM-Cba" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-9" id="lPY-En-nqA"/>
                             <constraint firstItem="oav-sN-aRC" firstAttribute="top" secondItem="X2y-dX-jtt" secondAttribute="top" id="nCp-HL-mce"/>
                             <constraint firstItem="0mL-zZ-J8l" firstAttribute="leading" secondItem="gAX-T2-yLr" secondAttribute="leading" id="onI-CH-0He"/>
                             <constraint firstItem="MjM-hV-tvW" firstAttribute="centerX" secondItem="gAX-T2-yLr" secondAttribute="centerX" id="pXZ-wQ-6VM"/>
@@ -341,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79.200000000000003" y="130.88455772113943"/>
+            <point key="canvasLocation" x="-50" y="124"/>
         </scene>
     </scenes>
     <resources>
