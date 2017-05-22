@@ -14,11 +14,14 @@ class PokedexCollectionViewController: UICollectionViewController {
     var pokemonPictures = [UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg"), UIImage(named: "001.jpg"), UIImage(named: "002.jpg"), UIImage(named: "003.jpg")]
     
     var pokedex = [[String:Any]]()
+    var names = [String]()
+    var pokemonImages = [String]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //readPokemonJson()
+        readPokemonJson()
 
     }
     
@@ -28,50 +31,63 @@ class PokedexCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonPictures.count
+        return names.count
+        //return pokemonPictures.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let pokemon = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemon", for: indexPath) as UICollectionViewCell
+
+        readPokemonJson()
         
-        let pokedex:[String: Any] = readPokemonJson()
+        //let pokedex:[String: Any] =
         
-        let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
+        //let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
         
-        for pokemon in pocketMonsters! {
-            let num = pokemon["num"] as? String
+        //for pokemon in pocketMonsters! {
+            //let num = pokemon["num"] as? String
             
 
-        }
+        //}
         
         
         //Tagged assigned in storyboard. Tag 1 is assigned to the UIimage
-        let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
+        //let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
         
         //Tag 2 is assigned to the UILabel
         let pokemonName = pokemon.viewWithTag(2) as! UILabel
         
-        pokemonImage.image = pokemonPictures[indexPath.row]
+        //pokemonImage.image = pokemonImages[indexPath.row]
 
-        pokemonName.text = pokemonNames[indexPath.row]
+        pokemonName.text = names[indexPath.row]
         
         return pokemon
     }
     
-    private func readPokemonJson() -> [String : Any]  {
+    private func readPokemonJson()  {
+
         do {
             //if a json file called pokedex exists
             if let file = Bundle.main.url(forResource: "pokedex", withExtension: "json") {
                 
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let pokedexObject = json as? [String: Any] {
+                if let pokedex = json as? [String: Any] {
                     
-                    //readJSONObject(object: pokedexObject as [String : AnyObject])
+                    let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
                     
-                    return pokedexObject as [String : AnyObject]
+                    for pokemon in pocketMonsters!{
+                        if let name = pokemon["name"] as? String {
+                            names.append(name)
+                        }else { break }
+                        if let image = pokemon["img"] as? String {
+                            pokemonImages.append(image)
+                        }else { break }
+                    }
                     
-                } else if let object = json as? [Any] {
+                    //return pokedex as [String : Any]
+                    
+                } else if let object = json as? [String: Any] {
                     // json is an array
                     print(object)
                     
@@ -84,10 +100,11 @@ class PokedexCollectionViewController: UICollectionViewController {
         } catch {
             print(error.localizedDescription)
         }
-   
-        let returnDefault: [String: Any] = ("" as? [String: Any])!
         
-        return returnDefault
+   
+        //let returnDefault: [String: Any] = ("" as? [String: Any])!
+        
+        //return returnDefault
     }
     
     
