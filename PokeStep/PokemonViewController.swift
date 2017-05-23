@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class PokemonViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     @IBOutlet weak var pokemonNumber: UILabel!
@@ -19,9 +19,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pokemonDistance: UILabel!
     @IBOutlet weak var userCurrentCandy: UITextField!
     @IBOutlet weak var distanceToWalk: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
 
-    var currentPokemonNumber = "001"
+    var currentPokemonNumber = 001
     var currentPokemonName = "Bulbasaur"
+    var currentPokemonImage: UIImage!
     var currentCandyEvolveOne: Int = 25
     var currentCandyEvolveTwo: Int  = 100
     var currentTotalPokemonCandy: Int = 0
@@ -35,7 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //Dismiss Keyboard when the outside of the keyboard the outside of the keyboard is clicked
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(PokemonViewController.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
         
@@ -44,29 +46,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.12, green:0.52, blue:0.59, alpha:1.0)]
         
-        
-        
         userCurrentCandy.delegate = self
 
-        
         readJson()
         
-        pokemonNumber.text = currentPokemonNumber
+        
+        pokemonNumber.text = String (currentPokemonNumber)
+        
+        
+        pokemonImage.image = currentPokemonImage
         
         //assigns uppercase version of text to the label
         pokemonName.text = currentPokemonName.uppercased()
         
         currentTotalPokemonCandy = currentCandyEvolveOne + currentCandyEvolveTwo
         pokemonCandy.text = String (currentTotalPokemonCandy)
-        
         pokemonDistance.text = String (currentPokemonDistance)
-        
         currentRequiredPokemonCandy = currentTotalPokemonCandy - testUserCurrentCandy
-        
         distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
     
-        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -74,9 +74,6 @@
                                     <constraint firstAttribute="bottomMargin" secondItem="Uef-XG-l8Q" secondAttribute="bottom" constant="8" id="tAT-HJ-GvX"/>
                                     <constraint firstItem="Uef-XG-l8Q" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" id="tR0-XJ-x4S"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="P6n-9T-1dx"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -90,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="-863.768115942029" y="123.91304347826087"/>
         </scene>
-        <!--View Controller-->
+        <!--Pokemon View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokeStep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PokemonViewController" id="BYZ-38-t0r" customClass="PokemonViewController" customModule="PokeStep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -329,6 +326,7 @@
                         <outlet property="distanceToWalk" destination="8dK-w8-LHB" id="Jmb-kh-RKs"/>
                         <outlet property="pokemonCandy" destination="yeJ-vA-eft" id="VT8-ZR-EPH"/>
                         <outlet property="pokemonDistance" destination="78E-W4-dSD" id="Mi2-rt-Cgj"/>
+                        <outlet property="pokemonImage" destination="0eb-wd-AoM" id="060-eB-yWu"/>
                         <outlet property="pokemonName" destination="XRe-T4-T4X" id="qEl-8a-vmC"/>
                         <outlet property="pokemonNumber" destination="lm9-cp-iGj" id="KNG-Jw-dIc"/>
                         <outlet property="pokemonType" destination="wMl-pn-8Yc" id="L3p-Vn-CNF"/>

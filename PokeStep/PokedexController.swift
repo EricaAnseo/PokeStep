@@ -11,9 +11,18 @@ import UIKit
 class PokedexCollectionViewController: UICollectionViewController {
 
     var pokedex = [[String:Any]]()
+    var pokemonID = [Int]()
     var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
     
+    var pokemon = [Pokemon]()
+    
+    var pokemonType = [String]()
+    var pokemonEvolution = [String]()
+    var pokemonCandy = [Int]()
+    var pokemonDistance = [Int]()
+    
+    var selectedPokemon: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,25 @@ class PokedexCollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.35, green:0.28, blue:0.43, alpha:1.0)]
 
     }
+    
+    //tells you which UICollectionView cell has been chosen
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedPokemon = indexPath[1]
+        let singlePokemonViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
+        
+        singlePokemonViewController.currentPokemonNumber = pokemonID[selectedPokemon]
+        singlePokemonViewController.currentPokemonImage = pokemonImages[selectedPokemon]
+
+        
+        //Changes the View
+        navigationController?.pushViewController(singlePokemonViewController, animated: true)
+        
+        print(selectedPokemon)
+
+    }
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,7 +72,7 @@ class PokedexCollectionViewController: UICollectionViewController {
         //Tagged assigned in storyboard. Tag 1 is assigned to the UIimage
         let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
         
-        //Tag 2 is assigned to the UILabel
+        //Tag 2 is assigned to the UILabel which displays the name
         let pokemonName = pokemon.viewWithTag(2) as! UILabel
         
         pokemonImage.image = pokemonImages[indexPath.row]
@@ -53,6 +81,8 @@ class PokedexCollectionViewController: UICollectionViewController {
         
         return pokemon
     }
+    
+    
     
     private func readPokemonJson()  {
 
@@ -67,17 +97,66 @@ class PokedexCollectionViewController: UICollectionViewController {
                     let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
                     
                     for pokemon in pocketMonsters!{
+                        
+                        //Pokemon ID
+                        if let id = pokemon["id"] as? Int {
+                            pokemonID.append(id)
+                        }else { break }
+                        
+                        //Pokemon Name
                         if let name = pokemon["name"] as? String {
                             pokemonNames.append(name)
                         }else { break }
+                        
+                        //Pokemon Image
                         if let imageURL = pokemon["img"] as? String {
                             
                             let myImage = try UIImage(data: NSData(contentsOf: NSURL(string:imageURL) as! URL) as Data)
                             self.pokemonImages.append(myImage!)
                             
                         } else { break }
+                        
+                        //Pokemon Type - Rework for two or one Pokemon Types
+                        if let type = pokemon["type"] as? [String] {
+                            for pokeeType in type {
+                                pokemonType.append(pokeeType)
+                            }
+                        }else {
+                            pokemonType.append("N/A")
+                        }
+                        
+                        //Pokemon Evolution - Rework for two or one Pokemon Types
+                        if let nextEvolution = pokemon["next_evolution"] as? [String: String] {
+                            let evolutionNumber = nextEvolution["num"]
+                            pokemonEvolution.append(evolutionNumber!)
+                            //for pokemonEvolve in nextEvolution {
+                                
+                                //print(pokemonEvolve)
+                                //if let nextPokemonEvolve = nextEvolution["name"] as? String
+                                //{
+                                //    pokemonEvolution.append(nextPokemonEvolve)
+                                //}
+                               
+                            //}
+                        }else {
+                            pokemonEvolution.append("N/A")
+                        }
+
+                        //Pokemon Candy
+                        if let pokemonSweets = pokemon["candy_count"] as? Int
+                        {
+                            pokemonCandy.append(pokemonSweets)
+                        }else {}
+                        
+                        //Pokemon Distance per Candy
+                        if let pokemonKM = pokemon["distance"] as? Int
+                        {
+                            pokemonDistance.append(pokemonKM)
+                        }else {}
+                     
+                    } //For each Pokemon
                     
-                    }
+                    print(pokemonDistance)
                     
                 } else if let object = json as? [String: Any] {
                     // json is an array
@@ -92,7 +171,7 @@ class PokedexCollectionViewController: UICollectionViewController {
         } catch {
             print(error.localizedDescription)
         }//end of catch
-   
+        
     }//end of func readPokemonJson
     
 }//end of class
