@@ -111,6 +111,8 @@ class PokedexCollectionViewController: UICollectionViewController {
                     
                     let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
                     
+                    print(pocketMonsters)
+                    
                     for pokemon in pocketMonsters!{
                         
                         //Pokemon ID
@@ -135,8 +137,8 @@ class PokedexCollectionViewController: UICollectionViewController {
                         if let type = pokemon["type"] as? [String] {
                             var pokemonTypesCombined: String = ""
                             
-                            for pokeeType in type {
-                                pokemonTypesCombined.append(pokeeType + " ")
+                            for pokeType in type {
+                                pokemonTypesCombined.append(pokeType + " ")
                             }
                             
                             pokemonType.append(pokemonTypesCombined)
@@ -145,12 +147,13 @@ class PokedexCollectionViewController: UICollectionViewController {
                             pokemonType.append("N/A")
                         }
                         
-                        //Pokemon Evolution - Rework for two or one Pokemon Types
-                        if let nextEvolution = pokemon["next_evolution"] as? [String: String] {
-                            let evolutionNumber = nextEvolution["num"]
-                            pokemonEvolution.append(evolutionNumber!)
-                            //for pokemonEvolve in nextEvolution {
-                                
+                        //Pokemon Evolution - Rework for two or one Pokemon Evolutions
+                        if let nextEvolution = pokemon["candy"] as? [String] {
+                                print(nextEvolution)
+                                //let pokemonEvolve = nextEvolution["num"]
+                                //for pokemonEvolve in nextEvolution {
+                                //let evolutionNumber = pokemonEvolve["num"] as? String
+                                //pokemonEvolution.append(evolutionNumber!)
                                 //print(pokemonEvolve)
                                 //if let nextPokemonEvolve = nextEvolution["name"] as? String
                                 //{
@@ -158,10 +161,12 @@ class PokedexCollectionViewController: UICollectionViewController {
                                 //}
                                
                             //}
+                            
+                            
                         }else {
                             pokemonEvolution.append("N/A")
                         }
-
+                        
                         //Pokemon Candy
                         if let pokemonSweets = pokemon["candy_count"] as? Int
                         {

@@ -42,11 +42,6 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         
         view.addGestureRecognizer(tap)
         
-        //changing the navigation controller to match the page background colour
-        //self.navigationController?.navigationBar.barTintColor = UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.01)
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.12, green:0.52, blue:0.59, alpha:1.0)]
-        
-        
         userCurrentCandy.delegate = self
    
         userCurrentCandy.text = String (testUserCurrentCandy)
@@ -59,12 +54,42 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         
         pokemonTypeLabel.text = currentPokemonType
     
+        
+    }
+    
+    // Start Editing The Text Field
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -160, up: true)
+    }
+    
+    // Finish Editing The Text Field
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -160, up: false)
+    }
+    
+    // Hide the keyboard when the return key pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Move the text field in a pretty animation!
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.25
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     //dismisses the Keyboard on touch
     func dismissKeyboard()
