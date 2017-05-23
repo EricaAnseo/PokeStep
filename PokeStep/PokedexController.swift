@@ -11,12 +11,9 @@ import UIKit
 class PokedexCollectionViewController: UICollectionViewController {
 
     var pokedex = [[String:Any]]()
-    var pokemonID = [Int]()
+    var pokemonID = [String]()
     var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
-    
-    var pokemon = [Pokemon]()
-    
     var pokemonType = [String]()
     var pokemonEvolution = [String]()
     var pokemonCandy = [Int]()
@@ -31,26 +28,44 @@ class PokedexCollectionViewController: UICollectionViewController {
         
         
         //changing the colour of the navigation controller to match the background
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.92, green:0.89, blue:0.99, alpha:0.5)
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.35, green:0.28, blue:0.43, alpha:1.0)]
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)]
 
     }
     
     //tells you which UICollectionView cell has been chosen
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        /*
+         var currentPokemonNumber = 001
+         var currentPokemonName = "Bulbasaur"
+         var currentPokemonImage: UIImage!
+         var currentCandyEvolveOne: Int = 25
+         var currentCandyEvolveTwo: Int  = 100
+         var currentTotalPokemonCandy: Int = 0
+         var currentRequiredPokemonCandy: Int = 0
+         var currentPokemonDistance = 3
+         var testUserCurrentCandy = 5
+         */
+        
         selectedPokemon = indexPath[1]
         let singlePokemonViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
         
+        let viewTitle = pokemonID[selectedPokemon] + " " + pokemonNames[selectedPokemon].uppercased()
+        
+        //Passing the data to the PokemonViewController
         singlePokemonViewController.currentPokemonNumber = pokemonID[selectedPokemon]
         singlePokemonViewController.currentPokemonImage = pokemonImages[selectedPokemon]
+        singlePokemonViewController.currentPokemonName = pokemonNames[selectedPokemon]
+        singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon]
+        singlePokemonViewController.currentPokemonType = pokemonType[selectedPokemon]
+        
+        singlePokemonViewController.title = viewTitle
 
         
-        //Changes the View
-        navigationController?.pushViewController(singlePokemonViewController, animated: true)
         
-        print(selectedPokemon)
+        //Changes the View after the cell has been selected
+        navigationController?.pushViewController(singlePokemonViewController, animated: true)
 
     }
 
@@ -99,7 +114,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                     for pokemon in pocketMonsters!{
                         
                         //Pokemon ID
-                        if let id = pokemon["id"] as? Int {
+                        if let id = pokemon["num"] as? String {
                             pokemonID.append(id)
                         }else { break }
                         
@@ -118,9 +133,14 @@ class PokedexCollectionViewController: UICollectionViewController {
                         
                         //Pokemon Type - Rework for two or one Pokemon Types
                         if let type = pokemon["type"] as? [String] {
+                            var pokemonTypesCombined: String = ""
+                            
                             for pokeeType in type {
-                                pokemonType.append(pokeeType)
+                                pokemonTypesCombined.append(pokeeType + " ")
                             }
+                            
+                            pokemonType.append(pokemonTypesCombined)
+                            
                         }else {
                             pokemonType.append("N/A")
                         }
@@ -156,7 +176,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                      
                     } //For each Pokemon
                     
-                    print(pokemonDistance)
+                    //print(pokemonDistance)
                     
                 } else if let object = json as? [String: Any] {
                     // json is an array
