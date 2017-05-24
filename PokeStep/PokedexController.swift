@@ -10,15 +10,16 @@ import UIKit
 
 class PokedexCollectionViewController: UICollectionViewController {
 
+    //MARK: Attributes
     var pokedex = [[String:Any]]()
     var pokemonID = [String]()
     var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
     var pokemonType = [String]()
-    var pokemonEvolution = [String]()
+    var pokemonEvolution = [[String]]()
+    var pokemonPreviousEvolution = [[String]]()
     var pokemonCandy = [Int]()
     var pokemonDistance = [Int]()
-    
     var selectedPokemon: Int = 0
 
     override func viewDidLoad() {
@@ -36,18 +37,6 @@ class PokedexCollectionViewController: UICollectionViewController {
     //tells you which UICollectionView cell has been chosen
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        /*
-         var currentPokemonNumber = 001
-         var currentPokemonName = "Bulbasaur"
-         var currentPokemonImage: UIImage!
-         var currentCandyEvolveOne: Int = 25
-         var currentCandyEvolveTwo: Int  = 100
-         var currentTotalPokemonCandy: Int = 0
-         var currentRequiredPokemonCandy: Int = 0
-         var currentPokemonDistance = 3
-         var testUserCurrentCandy = 5
-         */
-        
         selectedPokemon = indexPath[1]
         let singlePokemonViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
         
@@ -59,10 +48,90 @@ class PokedexCollectionViewController: UICollectionViewController {
         singlePokemonViewController.currentPokemonName = pokemonNames[selectedPokemon]
         singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon]
         singlePokemonViewController.currentPokemonType = pokemonType[selectedPokemon]
-        
+        //singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
+        singlePokemonViewController.evolutions = pokemonEvolution[selectedPokemon]
         singlePokemonViewController.title = viewTitle
 
         
+        
+        let evolutions = pokemonEvolution[selectedPokemon]
+        let previousEvolutions = pokemonPreviousEvolution[selectedPokemon]
+        var numberOfEvolutions = 0
+        var numberOfPreviousEvolutions = 0
+        
+        for _ in evolutions
+        {
+            if(evolutions[0] != "N/A")
+            {
+                numberOfEvolutions += 1
+            }
+        }
+        
+        for _ in previousEvolutions
+        {
+            if(previousEvolutions[0] != "N/A")
+            {
+                numberOfPreviousEvolutions += 1
+            }
+        }
+        
+        if (numberOfPreviousEvolutions == 0)
+        {
+            if (numberOfEvolutions == 0)
+            {
+                singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
+                singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
+                singlePokemonViewController.currentCandyEvolveTwo = 0
+                
+            }
+            
+            else if (numberOfEvolutions == 1)
+            {
+                let stageOneImage = Int(evolutions[0])! - 1
+                singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[selectedPokemon]
+                singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[stageOneImage]
+                singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
+                singlePokemonViewController.currentCandyEvolveTwo = 0
+                
+            } else if (numberOfEvolutions == 2)
+            {
+                let stageOneImage = Int(evolutions[0])! - 1
+                let stageTwoImage = Int(evolutions[1])! - 1
+                singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[selectedPokemon]
+                singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[stageOneImage]
+                singlePokemonViewController.currentPokemonEvolutionStageThreeImage = pokemonImages[stageTwoImage]
+                singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
+                singlePokemonViewController.currentCandyEvolveTwo = pokemonCandy[stageOneImage]
+                
+            } else {}
+        }
+        
+        else if (numberOfPreviousEvolutions == 1)
+        {
+            if (numberOfEvolutions == 1)
+            {
+                let previousEvolveImage = Int(previousEvolutions[0])! - 1
+                let stageOneImage = Int(evolutions[0])! - 1
+                singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[previousEvolveImage]
+                singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
+                singlePokemonViewController.currentPokemonEvolutionStageThreeImage = pokemonImages[stageOneImage]
+            }
+            else if (numberOfEvolutions == 0){
+                let previousEvolveImage = Int(previousEvolutions[0])! - 1
+                singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[previousEvolveImage]
+                singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
+            } else {}
+            
+        } else  if (numberOfPreviousEvolutions == 2){
+            let previousEvolveImage = Int(previousEvolutions[0])! - 1
+            let previousEvolveImageTwo = Int(previousEvolutions[1])! - 1
+            singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[previousEvolveImage]
+            singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[previousEvolveImageTwo]
+            singlePokemonViewController.currentPokemonEvolutionStageThreeImage = pokemonImages[selectedPokemon]
+            
+        } else {
+            
+        }
         
         //Changes the View after the cell has been selected
         navigationController?.pushViewController(singlePokemonViewController, animated: true)
@@ -111,19 +180,17 @@ class PokedexCollectionViewController: UICollectionViewController {
                     
                     let pocketMonsters = pokedex["pokemon"] as? [[String: AnyObject]]
                     
-                    print(pocketMonsters)
-                    
                     for pokemon in pocketMonsters!{
                         
                         //Pokemon ID
                         if let id = pokemon["num"] as? String {
                             pokemonID.append(id)
-                        }else { break }
+                        }else { pokemonID.append("999") }
                         
                         //Pokemon Name
                         if let name = pokemon["name"] as? String {
                             pokemonNames.append(name)
-                        }else { break }
+                        }else { pokemonNames.append("N/A") }
                         
                         //Pokemon Image
                         if let imageURL = pokemon["img"] as? String {
@@ -147,31 +214,44 @@ class PokedexCollectionViewController: UICollectionViewController {
                             pokemonType.append("N/A")
                         }
                         
-                        //Pokemon Evolution - Rework for two or one Pokemon Evolutions
-                        if let nextEvolution = pokemon["candy"] as? [String] {
-                                print(nextEvolution)
-                                //let pokemonEvolve = nextEvolution["num"]
-                                //for pokemonEvolve in nextEvolution {
-                                //let evolutionNumber = pokemonEvolve["num"] as? String
-                                //pokemonEvolution.append(evolutionNumber!)
-                                //print(pokemonEvolve)
-                                //if let nextPokemonEvolve = nextEvolution["name"] as? String
-                                //{
-                                //    pokemonEvolution.append(nextPokemonEvolve)
-                                //}
-                               
-                            //}
+                        
+                        if let previousPokemonEvolutions = pokemon["prevEvolution"] as? [String]
+                        {
+                            var arrayOfPrevEvolutions = [String]()
+                            for evolution in previousPokemonEvolutions
+                            {
+                                arrayOfPrevEvolutions.append(evolution)
+                            }
                             
+                            pokemonPreviousEvolution.append(arrayOfPrevEvolutions)
                             
                         }else {
-                            pokemonEvolution.append("N/A")
+                            pokemonPreviousEvolution.append(["N/A"])
+                        }
+                        
+                        //Pokemon Evolution - Rework for two or more Pokemon Evolutions
+                        if let singlePokemonEvolutions = pokemon["nextEvolution"] as? [String] {
+                            
+                                var arrayOfEvolutions = [String]()
+                            
+                                for evolution in singlePokemonEvolutions
+                                {
+                                    arrayOfEvolutions.append(evolution)
+                                }
+                            
+                                pokemonEvolution.append(arrayOfEvolutions)
+                            
+                        }else {
+                            pokemonEvolution.append(["N/A"])
                         }
                         
                         //Pokemon Candy
                         if let pokemonSweets = pokemon["candy_count"] as? Int
                         {
                             pokemonCandy.append(pokemonSweets)
-                        }else {}
+                        }else {
+                            pokemonCandy.append(0)
+                        }
                         
                         //Pokemon Distance per Candy
                         if let pokemonKM = pokemon["distance"] as? Int
@@ -181,7 +261,8 @@ class PokedexCollectionViewController: UICollectionViewController {
                      
                     } //For each Pokemon
                     
-                    //print(pokemonDistance)
+                    print(pokemonPreviousEvolution)
+                    print(pokemonEvolution)
                     
                 } else if let object = json as? [String: Any] {
                     // json is an array

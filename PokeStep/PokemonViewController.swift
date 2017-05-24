@@ -20,17 +20,24 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var remainingCandyRequiredLabel: UILabel!
+    @IBOutlet weak var evolutionStageOne: UIImageView!
+    @IBOutlet weak var evolutionStageTwo: UIImageView!
+    @IBOutlet weak var evolutionStageThree: UIImageView!
     
     var currentPokemonNumber = "001"
     var currentPokemonName = "Bulbasaur"
     var currentPokemonImage: UIImage!
-    var currentCandyEvolveOne: Int = 25
-    var currentCandyEvolveTwo: Int  = 100
+    var currentPokemonEvolutionStageOneImage: UIImage!
+    var currentPokemonEvolutionStageTwoImage: UIImage!
+    var currentPokemonEvolutionStageThreeImage: UIImage!
+    var currentCandyEvolveOne: Int = 0
+    var currentCandyEvolveTwo: Int  = 0
     var currentTotalPokemonCandy: Int = 0
     var currentRequiredPokemonCandy: Int = 0
-    var currentPokemonDistance = 3
+    var currentPokemonDistance = 0
     var currentPokemonType = "Fighting/Fighting"
-    var testUserCurrentCandy = 5
+    var testUserCurrentCandy = 0
+    var evolutions = [String]()
     
     
 
@@ -43,15 +50,24 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         
         userCurrentCandy.delegate = self
+        
+        //print(evolutions)
+        
+        for evo in evolutions
+        {
+            print(Int(evo))
+        }
    
         userCurrentCandy.text = String (testUserCurrentCandy)
         pokemonImage.image = currentPokemonImage
+        evolutionStageOne.image = currentPokemonEvolutionStageOneImage
+        evolutionStageTwo.image = currentPokemonEvolutionStageTwoImage
+        evolutionStageThree.image = currentPokemonEvolutionStageThreeImage
         currentTotalPokemonCandy = currentCandyEvolveOne + currentCandyEvolveTwo
         pokemonCandy.text = String (currentTotalPokemonCandy)
         pokemonDistance.text = String (currentPokemonDistance)
         currentRequiredPokemonCandy = currentTotalPokemonCandy - testUserCurrentCandy
         distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
-        
         pokemonTypeLabel.text = currentPokemonType
     
         

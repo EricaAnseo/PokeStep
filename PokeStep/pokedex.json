@@ -24,13 +24,10 @@
       "Flying",
       "Psychic"
     ],
-    "nextEvolution": [{
-      "num": "002",
-      "name": "Ivysaur"
-    }, {
-      "num": "003",
-      "name": "Venusaur"
-    }]
+    "nextEvolution": [
+      "002",
+      "003"
+    ]
   }, {
     "id": 2,
     "num": "002",
@@ -40,7 +37,7 @@
       "Grass",
       "Poison"
     ],
-"distance": 3,
+    "distance": 3,
     "height": "0.99 m",
     "weight": "13.0 kg",
     "candy": "Bulbasaur Candy",
@@ -59,14 +56,8 @@
       "Flying",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "001",
-      "name": "Bulbasaur"
-    }],
-    "nextEvolution": [{
-      "num": "003",
-      "name": "Venusaur"
-    }]
+    "prevEvolution": ["001"],
+    "nextEvolution": ["003",]
   }, {
     "id": 3,
     "num": "003",
@@ -91,13 +82,7 @@
       "Flying",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "001",
-      "name": "Bulbasaur"
-    }, {
-      "num": "002",
-      "name": "Ivysaur"
-    }]
+    "prevEvolution": ["001","002"]
   }, {
     "id": 4,
     "num": "004",
@@ -121,13 +106,10 @@
       "Ground",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "005",
-      "name": "Charmeleon"
-    }, {
-      "num": "006",
-      "name": "Charizard"
-    }]
+    "nextEvolution": [
+        "005",
+        "006",
+    ]
   }, {
     "id": 5,
     "num": "005",
@@ -151,14 +133,9 @@
       "Ground",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "004",
-      "name": "Charmander"
-    }],
-    "nextEvolution": [{
-      "num": "006",
-      "name": "Charizard"
-    }]
+    "prevEvolution": ["004"],
+    "nextEvolution": [
+       "006",]
   }, {
     "id": 6,
     "num": "006",
@@ -182,13 +159,7 @@
       "Electric",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "004",
-      "name": "Charmander"
-    }, {
-      "num": "005",
-      "name": "Charmeleon"
-    }]
+    "prevEvolution": ["004","005"]
   }, {
     "id": 7,
     "num": "007",
@@ -211,13 +182,7 @@
       "Electric",
       "Grass"
     ],
-    "nextEvolution": [{
-      "num": "008",
-      "name": "Wartortle"
-    }, {
-      "num": "009",
-      "name": "Blastoise"
-    }]
+    "nextEvolution": ["008","009"]
   }, {
     "id": 8,
     "num": "008",
@@ -226,7 +191,7 @@
     "type": [
       "Water"
     ],
-"distance": 3,
+    "distance": 3,
     "height": "0.99 m",
     "weight": "22.5 kg",
     "candy": "Squirtle Candy",
@@ -240,14 +205,8 @@
       "Electric",
       "Grass"
     ],
-    "prevEvolution": [{
-      "num": "007",
-      "name": "Squirtle"
-    }],
-    "nextEvolution": [{
-      "num": "009",
-      "name": "Blastoise"
-    }]
+    "prevEvolution": ["007"],
+    "nextEvolution": ["009"]
   }, {
     "id": 9,
     "num": "009",
@@ -269,13 +228,7 @@
       "Electric",
       "Grass"
     ],
-    "prevEvolution": [{
-      "num": "007",
-      "name": "Squirtle"
-    }, {
-      "num": "008",
-      "name": "Wartortle"
-    }]
+    "prevEvolution": ["007","008"]
   }, {
     "id": 10,
     "num": "010",
@@ -336,10 +289,7 @@
       "num": "010",
       "name": "Caterpie"
     }],
-    "nextEvolution": [{
-      "num": "012",
-      "name": "Butterfree"
-    }]
+    "nextEvolution": ["012"]
   }, {
     "id": 12,
     "num": "012",
@@ -400,13 +350,7 @@
       "Psychic",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "014",
-      "name": "Kakuna"
-    }, {
-      "num": "015",
-      "name": "Beedrill"
-    }]
+    "nextEvolution": ["014","015"]
   }, {
     "id": 14,
     "num": "014",
@@ -439,10 +383,7 @@
       "num": "013",
       "name": "Weedle"
     }],
-    "nextEvolution": [{
-      "num": "015",
-      "name": "Beedrill"
-    }]
+    "nextEvolution": ["015"]
   }, {
     "id": 15,
     "num": "015",
@@ -467,13 +408,7 @@
       "Psychic",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "013",
-      "name": "Weedle"
-    }, {
-      "num": "014",
-      "name": "Kakuna"
-    }]
+    "prevEvolution": ["013","014"]
   }, {
     "id": 16,
     "num": "016",
