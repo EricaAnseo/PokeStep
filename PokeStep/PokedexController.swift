@@ -15,7 +15,8 @@ class PokedexCollectionViewController: UICollectionViewController {
     var pokemonID = [String]()
     var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
-    var pokemonType = [String]()
+    //var pokemonType = [String]()
+    var pokemonTypes = [[String]]()
     var pokemonEvolution = [[String]]()
     var pokemonPreviousEvolution = [[String]]()
     var pokemonCandy = [Int]()
@@ -29,8 +30,11 @@ class PokedexCollectionViewController: UICollectionViewController {
         
         
         //changing the colour of the navigation controller to match the background
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)]
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)]
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
 
     }
     
@@ -47,29 +51,52 @@ class PokedexCollectionViewController: UICollectionViewController {
         singlePokemonViewController.currentPokemonImage = pokemonImages[selectedPokemon]
         singlePokemonViewController.currentPokemonName = pokemonNames[selectedPokemon]
         singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon]
-        singlePokemonViewController.currentPokemonType = pokemonType[selectedPokemon]
-        //singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
+        //singlePokemonViewController.currentPokemonType = pokemonType[selectedPokemon]
         singlePokemonViewController.evolutions = pokemonEvolution[selectedPokemon]
         singlePokemonViewController.title = viewTitle
 
+        //Handling how to display the info for Pokemon Type if a Pokemon has one or two
+        let selectedPokemonType = pokemonTypes[selectedPokemon]
+        var numberOfTypesInArray = 0
+        for types in selectedPokemonType
+        {
+            if(types != "N/A")
+            {
+                numberOfTypesInArray += 1
+            }
+        }
         
+        if(numberOfTypesInArray == 1){
+            singlePokemonViewController.currentPokemonType = selectedPokemonType[0]
+        }
+        else if(numberOfTypesInArray == 2){
+            var pokemonWithTwoTypes = selectedPokemonType[0]
+            pokemonWithTwoTypes.append("/")
+            pokemonWithTwoTypes.append(selectedPokemonType[1])
+            
+            singlePokemonViewController.currentPokemonType = pokemonWithTwoTypes
+        }
+        else {
         
+        }
+        
+        //Evolution Stuff - Variables used to determine if a Pokemon has any future or previous evolutions
         let evolutions = pokemonEvolution[selectedPokemon]
         let previousEvolutions = pokemonPreviousEvolution[selectedPokemon]
         var numberOfEvolutions = 0
         var numberOfPreviousEvolutions = 0
         
-        for _ in evolutions
+        for evo in evolutions
         {
-            if(evolutions[0] != "N/A")
+            if(evo != "N/A")
             {
                 numberOfEvolutions += 1
             }
         }
         
-        for _ in previousEvolutions
+        for preEvo in previousEvolutions
         {
-            if(previousEvolutions[0] != "N/A")
+            if(preEvo != "N/A")
             {
                 numberOfPreviousEvolutions += 1
             }
@@ -81,7 +108,6 @@ class PokedexCollectionViewController: UICollectionViewController {
             {
                 singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
                 singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
-                singlePokemonViewController.currentCandyEvolveTwo = 0
                 
             }
             
@@ -91,7 +117,6 @@ class PokedexCollectionViewController: UICollectionViewController {
                 singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[selectedPokemon]
                 singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[stageOneImage]
                 singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
-                singlePokemonViewController.currentCandyEvolveTwo = 0
                 
             } else if (numberOfEvolutions == 2)
             {
@@ -115,6 +140,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                 singlePokemonViewController.currentPokemonEvolutionStageOneImage = pokemonImages[previousEvolveImage]
                 singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
                 singlePokemonViewController.currentPokemonEvolutionStageThreeImage = pokemonImages[stageOneImage]
+                singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
             }
             else if (numberOfEvolutions == 0){
                 let previousEvolveImage = Int(previousEvolutions[0])! - 1
@@ -201,7 +227,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                         } else { break }
                         
                         //Pokemon Type - Rework for two or one Pokemon Types
-                        if let type = pokemon["type"] as? [String] {
+                        /*if let type = pokemon["type"] as? [String] {
                             var pokemonTypesCombined: String = ""
                             
                             for pokeType in type {
@@ -212,6 +238,20 @@ class PokedexCollectionViewController: UICollectionViewController {
                             
                         }else {
                             pokemonType.append("N/A")
+                        }*/
+                        
+                        if let currentPokemontypes = pokemon["type"] as? [String]
+                        {
+                            var arrayOfPokemonType = [String]()
+                            for type in currentPokemontypes
+                            {
+                                arrayOfPokemonType.append(type)
+                            }
+                            
+                            pokemonTypes.append(arrayOfPokemonType)
+                            
+                        }else {
+                            pokemonTypes.append(["N/A"])
                         }
                         
                         
@@ -261,8 +301,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                      
                     } //For each Pokemon
                     
-                    print(pokemonPreviousEvolution)
-                    print(pokemonEvolution)
+                    //print(pokemonTypes)
                     
                 } else if let object = json as? [String: Any] {
                     // json is an array

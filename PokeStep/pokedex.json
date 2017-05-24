@@ -252,13 +252,7 @@
       "Flying",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "011",
-      "name": "Metapod"
-    }, {
-      "num": "012",
-      "name": "Butterfree"
-    }]
+    "nextEvolution": ["011","012",]
   }, {
     "id": 11,
     "num": "011",
@@ -315,13 +309,7 @@
       "Flying",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "010",
-      "name": "Caterpie"
-    }, {
-      "num": "011",
-      "name": "Metapod"
-    }]
+    "prevEvolution": ["010","011",]
   }, {
     "id": 13,
     "num": "013",
@@ -379,10 +367,7 @@
       "Psychic",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "013",
-      "name": "Weedle"
-    }],
+    "prevEvolution": ["013",],
     "nextEvolution": ["015"]
   }, {
     "id": 15,
@@ -435,13 +420,7 @@
       "Electric",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "017",
-      "name": "Pidgeotto"
-    }, {
-      "num": "018",
-      "name": "Pidgeot"
-    }]
+    "nextEvolution": ["017","018",]
   }, {
     "id": 17,
     "num": "017",
@@ -465,14 +444,8 @@
       "Electric",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "016",
-      "name": "Pidgey"
-    }],
-    "nextEvolution": [{
-      "num": "018",
-      "name": "Pidgeot"
-    }]
+    "prevEvolution": ["016"],
+    "nextEvolution": ["018"]
   }, {
     "id": 18,
     "num": "018",
@@ -495,13 +468,7 @@
       "Electric",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "016",
-      "name": "Pidgey"
-    }, {
-      "num": "017",
-      "name": "Pidgeotto"
-    }]
+    "prevEvolution": ["016","017",]
   }, {
     "id": 19,
     "num": "019",
@@ -526,10 +493,7 @@
     "weaknesses": [
       "Fighting"
     ],
-    "nextEvolution": [{
-      "num": "020",
-      "name": "Raticate"
-    }]
+    "nextEvolution": ["020",]
   }, {
     "id": 20,
     "num": "020",
@@ -550,10 +514,7 @@
     "weaknesses": [
       "Fighting"
     ],
-    "prevEvolution": [{
-      "num": "019",
-      "name": "Rattata"
-    }]
+    "prevEvolution": ["019"]
   }, {
     "id": 21,
     "num": "021",
@@ -580,10 +541,7 @@
       "Electric",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "022",
-      "name": "Fearow"
-    }]
+    "nextEvolution": ["022",]
   }, {
     "id": 22,
     "num": "022",
@@ -606,10 +564,7 @@
       "Electric",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "021",
-      "name": "Spearow"
-    }]
+    "prevEvolution": ["021",]
   }, {
     "id": 23,
     "num": "023",
@@ -635,10 +590,7 @@
       "Ground",
       "Psychic"
     ],
-    "nextEvolution": [{
-      "num": "024",
-      "name": "Arbok"
-    }]
+    "nextEvolution": ["024"]
   }, {
     "id": 24,
     "num": "024",
@@ -660,10 +612,7 @@
       "Ground",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "023",
-      "name": "Ekans"
-    }]
+    "prevEvolution": ["023"]
   }, {
     "id": 25,
     "num": "025",
@@ -685,10 +634,7 @@
     "weaknesses": [
       "Ground"
     ],
-    "nextEvolution": [{
-      "num": "026",
-      "name": "Raichu"
-    }]
+    "nextEvolution": ["026",]
   }, {
     "id": 26,
     "num": "026",
@@ -709,10 +655,7 @@
     "weaknesses": [
       "Ground"
     ],
-    "prevEvolution": [{
-      "num": "025",
-      "name": "Pikachu"
-    }]
+    "prevEvolution": ["025",]
   }, {
     "id": 27,
     "num": "027",
@@ -736,10 +679,7 @@
       "Grass",
       "Ice"
     ],
-    "nextEvolution": [{
-      "num": "028",
-      "name": "Sandslash"
-    }]
+    "nextEvolution": ["028"]
   }, {
     "id": 28,
     "num": "028",
@@ -762,10 +702,7 @@
       "Grass",
       "Ice"
     ],
-    "prevEvolution": [{
-      "num": "027",
-      "name": "Sandshrew"
-    }]
+    "prevEvolution": ["027"]
   }, {
     "id": 29,
     "num": "029",
@@ -791,13 +728,7 @@
       "Ground",
       "Psychic"
     ],
-    "nextEvolution": [{
-      "num": "030",
-      "name": "Nidorina"
-    }, {
-      "num": "031",
-      "name": "Nidoqueen"
-    }]
+    "nextEvolution": ["030","031",]
   }, {
     "id": 30,
     "num": "030",
@@ -823,14 +754,8 @@
       "Ground",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "029",
-      "name": "Nidoran(Female)"
-    }],
-    "nextEvolution": [{
-      "num": "031",
-      "name": "Nidoqueen"
-    }]
+    "prevEvolution": ["029",],
+    "nextEvolution": ["031",]
   }, {
     "id": 31,
     "num": "031",
@@ -855,13 +780,7 @@
       "Ground",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "029",
-      "name": "Nidoran(Female)"
-    }, {
-      "num": "030",
-      "name": "Nidorina"
-    }]
+    "prevEvolution": ["029","030",]
   }, {
     "id": 32,
     "num": "032",
@@ -887,13 +806,7 @@
       "Ground",
       "Psychic"
     ],
-    "nextEvolution": [{
-      "num": "033",
-      "name": "Nidorino"
-    }, {
-      "num": "034",
-      "name": "Nidoking"
-    }]
+    "nextEvolution": ["033","034"]
   }, {
     "id": 33,
     "num": "033",
@@ -916,14 +829,8 @@
       "Ground",
       "Psychic"
     ],
-    "prevEvolution": [{
-      "num": "032",
-      "name": "Nidoran(Male)"
-    }],
-    "nextEvolution": [{
-      "num": "034",
-      "name": "Nidoking"
-    }]
+    "prevEvolution": ["032",],
+    "nextEvolution": ["034",]
   }, {
     "id": 34,
     "num": "034",
@@ -979,10 +886,7 @@
     "weaknesses": [
       "Fighting"
     ],
-    "nextEvolution": [{
-      "num": "036",
-      "name": "Clefable"
-    }]
+    "nextEvolution": [ "036",]
   }, {
     "id": 36,
     "num": "036",
@@ -1003,10 +907,7 @@
     "weaknesses": [
       "Fighting"
     ],
-    "prevEvolution": [{
-      "num": "035",
-      "name": "Clefairy"
-    }]
+    "prevEvolution": ["035",]
   }, {
     "id": 37,
     "num": "037",
@@ -1033,10 +934,7 @@
       "Ground",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "038",
-      "name": "Ninetales"
-    }]
+    "nextEvolution": ["038",]
   }, {
     "id": 38,
     "num": "038",
@@ -1059,10 +957,7 @@
       "Ground",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "037",
-      "name": "Vulpix"
-    }]
+    "prevEvolution": ["037",]
   }, {
     "id": 39,
     "num": "039",
@@ -1084,10 +979,7 @@
       "Fighting"
     ],
 "distance": 1,
-    "nextEvolution": [{
-      "num": "040",
-      "name": "Wigglytuff"
-    }]
+    "nextEvolution": ["040",]
   }, {
     "id": 40,
     "num": "040",
@@ -1108,10 +1000,7 @@
     "weaknesses": [
       "Fighting"
     ],
-    "prevEvolution": [{
-      "num": "039",
-      "name": "Jigglypuff"
-    }]
+    "prevEvolution": ["039",]
   }, {
     "id": 41,
     "num": "041",
@@ -1140,10 +1029,7 @@
       "Psychic",
       "Rock"
     ],
-    "nextEvolution": [{
-      "num": "042",
-      "name": "Golbat"
-    }]
+    "nextEvolution": ["042",]
   }, {
     "id": 42,
     "num": "042",
@@ -1168,10 +1054,7 @@
       "Psychic",
       "Rock"
     ],
-    "prevEvolution": [{
-      "num": "041",
-      "name": "Zubat"
-    }]
+    "prevEvolution": ["041"]
   }, {
     "id": 43,
     "num": "043",
@@ -1197,13 +1080,7 @@
       "Flying",
       "Psychic"
     ],
-    "nextEvolution": [{
-      "num": "044",
-      "name": "Gloom"
-    }, {
-      "num": "045",
-      "name": "Vileplume"
-    }]
+    "nextEvolution": ["044","045",]
   }, {
     "id": 44,
     "num": "044",
