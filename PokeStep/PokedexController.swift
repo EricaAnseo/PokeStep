@@ -10,9 +10,6 @@ import UIKit
 
 class PokedexCollectionViewController: UICollectionViewController {
 
-    //declare this property where it won't go out of scope relative to your listener
-    let reachability = Reachability()!
-    
     //MARK: Attributes
     var pokedex = [[String:Any]]()
     var pokemonID = [String]()
@@ -24,7 +21,11 @@ class PokedexCollectionViewController: UICollectionViewController {
     var pokemonCandy = [Int]()
     var pokemonDistance = [Int]()
     var selectedPokemon: Int = 0
+    
+    //declare this property where it won't go out of scope relative to your listener
+    let reachability = Reachability()!
 
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,15 +54,40 @@ class PokedexCollectionViewController: UICollectionViewController {
 
     }
     
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    //Determines how many cells there are based on the number of Pokemon Names in the array pokemonNames
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pokemonNames.count
+    }
     
-    //tells you which UICollectionView cell has been chosen
+    //Assign the images and text to each cell based on its cell number
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let pokemon = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemon", for: indexPath) as UICollectionViewCell
+        
+        //Tagged assigned in storyboard. Tag 1 is assigned to the UIimage
+        let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
+        
+        //Tag 2 is assigned to the UILabel which displays the name
+        let pokemonName = pokemon.viewWithTag(2) as! UILabel
+        
+        pokemonImage.image = pokemonImages[indexPath.row]
+        pokemonName.text = pokemonNames[indexPath.row]
+        
+        return pokemon
+    }
+    
+    //tells you which UICollectionView cell has been chosen. Pushes this information to the PokemonViewController
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        //get the cell that was chosen
         selectedPokemon = indexPath[1]
-        let singlePokemonViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
         
+        //make an instance of the Pokemon View Controller
+        let singlePokemonViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
         let viewTitle = pokemonID[selectedPokemon] + " " + pokemonNames[selectedPokemon].uppercased()
         
         //Passing the data to the PokemonViewController
@@ -183,53 +209,15 @@ class PokedexCollectionViewController: UICollectionViewController {
 
     }
 
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonNames.count
-        //return pokemonPictures.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let pokemon = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemon", for: indexPath) as UICollectionViewCell
-
-        //Tagged assigned in storyboard. Tag 1 is assigned to the UIimage
-        let pokemonImage = pokemon.viewWithTag(1) as! UIImageView
-        
-        //Tag 2 is assigned to the UILabel which displays the name
-        let pokemonName = pokemon.viewWithTag(2) as! UILabel
-        
-        pokemonImage.image = pokemonImages[indexPath.row]
-
-        pokemonName.text = pokemonNames[indexPath.row]
-        
-        return pokemon
-    }
-    
+    //The notification that will appear if there is no internet connectivity
     func showNoInternetAlert(title: String, message: String) {
         //build the alert
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        let okAction = UIAlertAction(
-            title: "OK",
-            style:  .default,
-            handler: nil
-        )
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style:  .default, handler: nil)
+        
         //display the alert
         alert.addAction(okAction)
-        present(
-            alert,
-            animated: true,
-            completion: nil
-        )
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: Read JSON file
@@ -264,21 +252,8 @@ class PokedexCollectionViewController: UICollectionViewController {
                             self.pokemonImages.append(myImage!)
                             
                         } else { break }
-                        
-                        //Pokemon Type - Rework for two or one Pokemon Types
-                        /*if let type = pokemon["type"] as? [String] {
-                            var pokemonTypesCombined: String = ""
-                            
-                            for pokeType in type {
-                                pokemonTypesCombined.append(pokeType + " ")
-                            }
-                            
-                            pokemonType.append(pokemonTypesCombined)
-                            
-                        }else {
-                            pokemonType.append("N/A")
-                        }*/
-                        
+                
+                        //Pokemon Type and how to handle a Pokemon having multiple types
                         if let currentPokemontypes = pokemon["type"] as? [String]
                         {
                             var arrayOfPokemonType = [String]()
@@ -293,7 +268,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                             pokemonTypes.append(["N/A"])
                         }
                         
-                        
+                        //Pokemon previous Evolutions and how to handle a Pokemon having multiple previous evolutions
                         if let previousPokemonEvolutions = pokemon["prevEvolution"] as? [String]
                         {
                             var arrayOfPrevEvolutions = [String]()
@@ -308,7 +283,7 @@ class PokedexCollectionViewController: UICollectionViewController {
                             pokemonPreviousEvolution.append(["N/A"])
                         }
                         
-                        //Pokemon Evolution - Rework for two or more Pokemon Evolutions
+                        //Pokemon Evolution and how to handle multiple evoltuions
                         if let singlePokemonEvolutions = pokemon["nextEvolution"] as? [String] {
                             
                                 var arrayOfEvolutions = [String]()

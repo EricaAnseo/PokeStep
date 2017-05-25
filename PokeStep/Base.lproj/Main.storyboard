@@ -54,9 +54,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="72" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-XG-l8Q"/>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-Kk-72r">
-                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="9"/>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-XG-l8Q">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="62" id="SYc-DA-I3I"/>
+                                                <constraint firstAttribute="height" constant="62" id="hU0-u2-kbe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-Kk-72r">
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -68,11 +73,11 @@
                                     <constraint firstItem="TUk-Kk-72r" firstAttribute="centerX" secondItem="ygn-pY-W0Y" secondAttribute="centerX" id="QrG-i6-KAr"/>
                                     <constraint firstItem="Uef-XG-l8Q" firstAttribute="centerX" secondItem="TUk-Kk-72r" secondAttribute="centerX" id="Td2-ZW-iUU"/>
                                     <constraint firstItem="Uef-XG-l8Q" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="topMargin" constant="-3" id="VnV-e3-C8q"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="TUk-Kk-72r" secondAttribute="bottom" constant="-5" id="beE-33-6Jc"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="topMargin" constant="61" id="e88-JR-23A"/>
-                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" constant="2" id="etE-fK-fVm"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="TUk-Kk-72r" secondAttribute="bottom" constant="-6" id="beE-33-6Jc"/>
+                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="top" secondItem="ygn-pY-W0Y" secondAttribute="topMargin" constant="62" id="e88-JR-23A"/>
+                                    <constraint firstItem="TUk-Kk-72r" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" constant="-5" id="etE-fK-fVm"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="Uef-XG-l8Q" secondAttribute="bottom" constant="8" id="tAT-HJ-GvX"/>
-                                    <constraint firstItem="Uef-XG-l8Q" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" id="tR0-XJ-x4S"/>
+                                    <constraint firstItem="Uef-XG-l8Q" firstAttribute="leading" secondItem="ygn-pY-W0Y" secondAttribute="leadingMargin" constant="-3" id="tR0-XJ-x4S"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>

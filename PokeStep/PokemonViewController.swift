@@ -68,7 +68,7 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
         pokemonTypeLabel.text = currentPokemonType
         
-        checkEvolutionArrows()
+        checkEvolutionandManipulateArrows()
         
     }
     
@@ -76,7 +76,6 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     //MARK: Comment - Moves the UIView 
     // Start Editing The Text Field
@@ -113,7 +112,8 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    func checkEvolutionArrows()
+    //Checking to see how many evolutions each Pokemon had and hiding the arrow for each
+    func checkEvolutionandManipulateArrows()
     {
         //Based on the number of evolutions, show certain number of arrows
         if (noOfPreviousEvolutions == 0)
@@ -160,6 +160,7 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: Actions
+    //Action which calculates the distance required to walk and remaining pokemon needed
     @IBAction func calculateButton(_ sender: AnyObject) {
         currentRequiredPokemonCandy = (currentTotalPokemonCandy - Int(userCurrentCandy.text!)!)
 
