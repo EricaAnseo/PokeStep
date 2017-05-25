@@ -51,7 +51,6 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         
         //Dismiss Keyboard when the outside of the keyboard the outside of the keyboard is clicked
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(PokemonViewController.dismissKeyboard))
-        
         view.addGestureRecognizer(tap)
         
         //Assigning information to the UIImageView and UILabels
@@ -69,6 +68,8 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         pokemonTypeLabel.text = currentPokemonType
         
         userCurrentCandy.backgroundColor = UIColor(red:0.97, green:1.00, blue:0.97, alpha:1.0)
+        userCurrentCandy.tintColor = UIColor(red:0.14, green:0.50, blue:0.57, alpha:1.0)
+        
         
         checkEvolutionandManipulateArrows()
         
@@ -82,12 +83,12 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
     //MARK: Comment - Moves the UIView 
     // Start Editing The Text Field
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -160, up: true)
+        moveTextField(textField, moveDistance: -110, up: true)
     }
     
     // Finish Editing The Text Field
     func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -160, up: false)
+        moveTextField(textField, moveDistance: -110, up: false)
     }
     
     // Hide the keyboard when the return key pressed

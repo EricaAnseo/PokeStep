@@ -31,10 +31,14 @@ class PokedexCollectionViewController: UICollectionViewController {
         
         //changing the colour of the navigation controller to match the background
         //self.navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)]
-        self.navigationController?.navigationBar.tintColor = UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)]
+        //self.navigationController?.navigationBar.tintColor = UIColor(red:0.14, green:0.50, blue:0.57, alpha:1.0)
+        //self.navigationController?.navigationBar.isTranslucent = true
+        //self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.97, green:1.00, blue:0.97, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.14, green:0.50, blue:0.57, alpha:1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.14, green:0.50, blue:0.57, alpha:1.0)] 
+        
         
         if reachability.isReachable {
             if reachability.isReachableViaWiFi {

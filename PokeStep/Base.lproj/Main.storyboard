@@ -181,11 +181,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAQ-V2-bYt">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAQ-V2-bYt">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="QfQ-j6-9Kg"/>
                                     <constraint firstAttribute="height" constant="40" id="dE3-Mq-gv9"/>
-                                    <constraint firstAttribute="width" secondItem="NAQ-V2-bYt" secondAttribute="height" multiplier="1:1" id="mNl-Gw-jYk"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="pokeballButton.png">
                                     <color key="titleColor" red="0.77254901960784317" green="0.0" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -329,6 +328,7 @@
                             <constraint firstItem="0eb-wd-AoM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="82" id="lBt-Ya-ugK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8dK-w8-LHB" secondAttribute="trailing" constant="12" id="pXe-ir-sbO"/>
                             <constraint firstItem="NAQ-V2-bYt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="581" id="qe3-OG-qoE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NAQ-V2-bYt" secondAttribute="trailing" constant="152" id="rTC-PU-jaG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xKE-GW-LHR" secondAttribute="trailing" constant="121" id="rrq-kz-Zgh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NAQ-V2-bYt" secondAttribute="bottom" constant="26" id="sS5-h8-zKH"/>
                             <constraint firstItem="LyI-JL-QqE" firstAttribute="leading" secondItem="qwW-wH-oqG" secondAttribute="leading" id="snK-lN-RwL"/>
