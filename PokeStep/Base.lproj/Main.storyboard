@@ -158,7 +158,7 @@
                                     <constraint firstAttribute="height" constant="2" id="lBJ-eU-M1y"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 KM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dK-w8-LHB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dK-w8-LHB">
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -294,8 +294,9 @@
                             <constraint firstItem="Uu8-10-R3v" firstAttribute="top" secondItem="xKE-GW-LHR" secondAttribute="bottom" constant="33" id="ETT-Cp-BuS"/>
                             <constraint firstItem="qwW-wH-oqG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="6" id="FuW-Cn-zWE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nbb-E8-Ma8" secondAttribute="trailing" constant="104" id="FvB-YF-LtZ"/>
-                            <constraint firstItem="S6z-Xf-Whh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="66" id="HfZ-lJ-YY8"/>
+                            <constraint firstItem="S6z-Xf-Whh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="58" id="HfZ-lJ-YY8"/>
                             <constraint firstItem="X2y-dX-jtt" firstAttribute="top" secondItem="xKE-GW-LHR" secondAttribute="bottom" constant="7" id="Hh3-9A-A4d"/>
+                            <constraint firstItem="8dK-w8-LHB" firstAttribute="leading" secondItem="80T-Gz-42P" secondAttribute="trailing" constant="4" id="JG3-Iw-YBa"/>
                             <constraint firstItem="qwW-wH-oqG" firstAttribute="top" secondItem="xKE-GW-LHR" secondAttribute="bottom" constant="7" id="KkA-IG-sTp"/>
                             <constraint firstItem="Nbb-E8-Ma8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NUf-fl-0ib"/>
                             <constraint firstItem="X2y-dX-jtt" firstAttribute="leading" secondItem="Uu8-10-R3v" secondAttribute="trailing" constant="13" id="Q4S-oO-zc8"/>
@@ -326,7 +327,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0eb-wd-AoM" secondAttribute="trailing" constant="81" id="k4N-x9-ees"/>
                             <constraint firstItem="NAQ-V2-bYt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="151" id="k5b-tJ-pel"/>
                             <constraint firstItem="0eb-wd-AoM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="82" id="lBt-Ya-ugK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8dK-w8-LHB" secondAttribute="trailing" constant="12" id="pXe-ir-sbO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8dK-w8-LHB" secondAttribute="trailing" constant="18" id="pXe-ir-sbO"/>
                             <constraint firstItem="NAQ-V2-bYt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="581" id="qe3-OG-qoE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NAQ-V2-bYt" secondAttribute="trailing" constant="152" id="rTC-PU-jaG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xKE-GW-LHR" secondAttribute="trailing" constant="121" id="rrq-kz-Zgh"/>
