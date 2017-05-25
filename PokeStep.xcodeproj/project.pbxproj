@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2581A0281ED6DD4F00752816 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2581A0271ED6DD4F00752816 /* Reachability.swift */; };
 		258828301EBCD6DF002991EB /* PokedexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2588282F1EBCD6DF002991EB /* PokedexController.swift */; };
 		25B28E951E957D4B0031FF8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B28E941E957D4B0031FF8D /* AppDelegate.swift */; };
 		25B28E971E957D4B0031FF8D /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B28E961E957D4B0031FF8D /* PokemonViewController.swift */; };
@@ -216,6 +217,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2581A0271ED6DD4F00752816 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2588282F1EBCD6DF002991EB /* PokedexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexController.swift; sourceTree = "<group>"; };
 		25B28E911E957D4B0031FF8D /* PokeStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B28E941E957D4B0031FF8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				25B28E981E957D4B0031FF8D /* Main.storyboard */,
 				25B28E9B1E957D4B0031FF8D /* Assets.xcassets */,
 				25B28E9D1E957D4C0031FF8D /* LaunchScreen.storyboard */,
+				2581A0271ED6DD4F00752816 /* Reachability.swift */,
 				25B28EA01E957D4C0031FF8D /* Info.plist */,
 				25CAFA231ED34BBE009C8250 /* Pokemon.swift */,
 			);
@@ -1013,6 +1016,7 @@
 				258828301EBCD6DF002991EB /* PokedexController.swift in Sources */,
 				25CAFA241ED34BBE009C8250 /* Pokemon.swift in Sources */,
 				25B28E971E957D4B0031FF8D /* PokemonViewController.swift in Sources */,
+				2581A0281ED6DD4F00752816 /* Reachability.swift in Sources */,
 				25B28E951E957D4B0031FF8D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

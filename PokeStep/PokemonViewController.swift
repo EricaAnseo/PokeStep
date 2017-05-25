@@ -23,7 +23,10 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var evolutionStageOne: UIImageView!
     @IBOutlet weak var evolutionStageTwo: UIImageView!
     @IBOutlet weak var evolutionStageThree: UIImageView!
+    @IBOutlet weak var secondEvolutionArrow: UIImageView!
+    @IBOutlet weak var firstEvolutionArrow: UIImageView!
     
+    //MARK: Attributes
     var currentPokemonNumber = "001"
     var currentPokemonName = "Bulbasaur"
     var currentPokemonImage: UIImage!
@@ -36,11 +39,13 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
     var currentRequiredPokemonCandy: Int = 0
     var currentPokemonDistance = 0
     var currentPokemonType = "Fighting/Fighting"
-    var testUserCurrentCandy = 0
+    var inputUserCurrentCandy = 0
     var evolutions = [String]()
+    var noOfEvolutions = 0
+    var noOfPreviousEvolutions = 0
     
     
-
+    //MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,16 +54,9 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         
         view.addGestureRecognizer(tap)
         
+        //Assigning information to the UIImageView and UILabels
         userCurrentCandy.delegate = self
-        
-        //print(evolutions)
-        
-        for evo in evolutions
-        {
-            print(Int(evo))
-        }
-   
-        userCurrentCandy.text = String (testUserCurrentCandy)
+        userCurrentCandy.text = String (inputUserCurrentCandy)
         pokemonImage.image = currentPokemonImage
         evolutionStageOne.image = currentPokemonEvolutionStageOneImage
         evolutionStageTwo.image = currentPokemonEvolutionStageTwoImage
@@ -66,13 +64,21 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         currentTotalPokemonCandy = currentCandyEvolveOne + currentCandyEvolveTwo
         pokemonCandy.text = String (currentTotalPokemonCandy)
         pokemonDistance.text = String (currentPokemonDistance)
-        currentRequiredPokemonCandy = currentTotalPokemonCandy - testUserCurrentCandy
+        currentRequiredPokemonCandy = currentTotalPokemonCandy - inputUserCurrentCandy
         distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
         pokemonTypeLabel.text = currentPokemonType
-    
+        
+        checkEvolutionArrows()
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //MARK: Comment - Moves the UIView 
     // Start Editing The Text Field
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -160, up: true)
@@ -101,20 +107,59 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         UIView.commitAnimations()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
     //dismisses the Keyboard on touch
     func dismissKeyboard()
     {
         view.endEditing(true)
     }
     
-    //MARK: Actions
+    func checkEvolutionArrows()
+    {
+        //Based on the number of evolutions, show certain number of arrows
+        if (noOfPreviousEvolutions == 0)
+        {
+            if (noOfEvolutions == 0)
+            {
+                firstEvolutionArrow.isHidden = true
+                secondEvolutionArrow.isHidden = true
+            }
+                
+            else if (noOfEvolutions == 1)
+            {
+                firstEvolutionArrow.isHidden = false
+                secondEvolutionArrow.isHidden = true
+                
+            } else if (noOfEvolutions == 2)
+            {
+                firstEvolutionArrow.isHidden = false
+                secondEvolutionArrow.isHidden = false
+                
+            } else {}
+        }
+            
+        else if (noOfPreviousEvolutions == 1)
+        {
+            if (noOfEvolutions == 1)
+            {
+                firstEvolutionArrow.isHidden = false
+                secondEvolutionArrow.isHidden = false
+            }
+            else if (noOfEvolutions == 0){
+                firstEvolutionArrow.isHidden = false
+                secondEvolutionArrow.isHidden = true
+            } else {}
+            
+        } else  if (noOfPreviousEvolutions == 2){
+            
+            firstEvolutionArrow.isHidden = false
+            secondEvolutionArrow.isHidden = false
+            
+        } else {
+            
+        }
+    }
     
+    //MARK: Actions
     @IBAction func calculateButton(_ sender: AnyObject) {
         currentRequiredPokemonCandy = (currentTotalPokemonCandy - Int(userCurrentCandy.text!)!)
 

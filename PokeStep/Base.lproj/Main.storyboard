@@ -325,11 +325,13 @@
                         <outlet property="evolutionStageOne" destination="qwW-wH-oqG" id="7St-kS-HUB"/>
                         <outlet property="evolutionStageThree" destination="X2y-dX-jtt" id="soI-1E-l85"/>
                         <outlet property="evolutionStageTwo" destination="oav-sN-aRC" id="K9S-Bc-sLG"/>
+                        <outlet property="firstEvolutionArrow" destination="cd8-Zv-utK" id="R8L-F5-6KI"/>
                         <outlet property="pokemonCandy" destination="yeJ-vA-eft" id="VT8-ZR-EPH"/>
                         <outlet property="pokemonDistance" destination="78E-W4-dSD" id="Mi2-rt-Cgj"/>
                         <outlet property="pokemonImage" destination="0eb-wd-AoM" id="060-eB-yWu"/>
                         <outlet property="pokemonTypeLabel" destination="wMl-pn-8Yc" id="e6T-hh-Dn8"/>
                         <outlet property="remainingCandyRequiredLabel" destination="S6z-Xf-Whh" id="R2D-ln-OkU"/>
+                        <outlet property="secondEvolutionArrow" destination="Uu8-10-R3v" id="pc5-GU-utR"/>
                         <outlet property="userCurrentCandy" destination="LyI-JL-QqE" id="b6a-yw-vuc"/>
                     </connections>
                 </viewController>

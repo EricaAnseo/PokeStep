@@ -10,12 +10,14 @@ import UIKit
 
 class PokedexCollectionViewController: UICollectionViewController {
 
+    //declare this property where it won't go out of scope relative to your listener
+    let reachability = Reachability()!
+    
     //MARK: Attributes
     var pokedex = [[String:Any]]()
     var pokemonID = [String]()
     var pokemonNames = [String]()
     var pokemonImages = [UIImage]()
-    //var pokemonType = [String]()
     var pokemonTypes = [[String]]()
     var pokemonEvolution = [[String]]()
     var pokemonPreviousEvolution = [[String]]()
@@ -26,17 +28,33 @@ class PokedexCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        readPokemonJson()
-        
-        
         //changing the colour of the navigation controller to match the background
         //self.navigationController?.navigationBar.barTintColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)]
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.00, green:0.10, blue:0.00, alpha:1.0)
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
+                print("Reachable via WiFi")
+                self.readPokemonJson()
+            } else {
+                print("Reachable via Cellular")
+                self.readPokemonJson()
+            }
+        } else {
+            print("Network not reachable")
+            self.showNoInternetAlert(
+                title: "No Internet Connection",
+                message: "Sadly PokeStep requires internet connection to run. Please connect to the internet and then relaunch PokeStep."
+            )
+        }
 
     }
+    
+
+    
     
     //tells you which UICollectionView cell has been chosen
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -51,7 +69,6 @@ class PokedexCollectionViewController: UICollectionViewController {
         singlePokemonViewController.currentPokemonImage = pokemonImages[selectedPokemon]
         singlePokemonViewController.currentPokemonName = pokemonNames[selectedPokemon]
         singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon]
-        //singlePokemonViewController.currentPokemonType = pokemonType[selectedPokemon]
         singlePokemonViewController.evolutions = pokemonEvolution[selectedPokemon]
         singlePokemonViewController.title = viewTitle
 
@@ -108,7 +125,6 @@ class PokedexCollectionViewController: UICollectionViewController {
             {
                 singlePokemonViewController.currentPokemonEvolutionStageTwoImage = pokemonImages[selectedPokemon]
                 singlePokemonViewController.currentCandyEvolveOne = pokemonCandy[selectedPokemon]
-                
             }
             
             else if (numberOfEvolutions == 1)
@@ -159,6 +175,9 @@ class PokedexCollectionViewController: UICollectionViewController {
             
         }
         
+        singlePokemonViewController.noOfEvolutions = numberOfEvolutions
+        singlePokemonViewController.noOfPreviousEvolutions = numberOfPreviousEvolutions
+        
         //Changes the View after the cell has been selected
         navigationController?.pushViewController(singlePokemonViewController, animated: true)
 
@@ -192,8 +211,28 @@ class PokedexCollectionViewController: UICollectionViewController {
         return pokemon
     }
     
+    func showNoInternetAlert(title: String, message: String) {
+        //build the alert
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:  .default,
+            handler: nil
+        )
+        //display the alert
+        alert.addAction(okAction)
+        present(
+            alert,
+            animated: true,
+            completion: nil
+        )
+    }
     
-    
+    //MARK: Read JSON file
     private func readPokemonJson()  {
 
         do {
