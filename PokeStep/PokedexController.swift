@@ -94,7 +94,7 @@ class PokedexCollectionViewController: UICollectionViewController {
         singlePokemonViewController.currentPokemonNumber = pokemonID[selectedPokemon]
         singlePokemonViewController.currentPokemonImage = pokemonImages[selectedPokemon]
         singlePokemonViewController.currentPokemonName = pokemonNames[selectedPokemon]
-        singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon]
+        singlePokemonViewController.currentPokemonDistance = pokemonDistance[selectedPokemon] 
         singlePokemonViewController.evolutions = pokemonEvolution[selectedPokemon]
         singlePokemonViewController.title = viewTitle
 

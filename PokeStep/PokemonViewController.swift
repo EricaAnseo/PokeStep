@@ -63,10 +63,12 @@ class PokemonViewController: UIViewController, UITextFieldDelegate {
         evolutionStageThree.image = currentPokemonEvolutionStageThreeImage
         currentTotalPokemonCandy = currentCandyEvolveOne + currentCandyEvolveTwo
         pokemonCandy.text = String (currentTotalPokemonCandy)
-        pokemonDistance.text = String (currentPokemonDistance)
+        pokemonDistance.text = String (currentPokemonDistance) + "KM"
         currentRequiredPokemonCandy = currentTotalPokemonCandy - inputUserCurrentCandy
         distanceToWalk.text = String (currentRequiredPokemonCandy*currentPokemonDistance) + "KM"
         pokemonTypeLabel.text = currentPokemonType
+        
+        userCurrentCandy.backgroundColor = UIColor(red:0.97, green:1.00, blue:0.97, alpha:1.0)
         
         checkEvolutionandManipulateArrows()
         
